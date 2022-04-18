@@ -1,0 +1,16 @@
+﻿<Window x:Class="WPFUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="570" Width="580">
+    
+    <Canvas Background="LightBlue" Width="570">
+        <Canvas Canvas.Left="30" Canvas.Bottom="30" Background="Red" Height="450" Width="510"/>
+        <Rectangle Fill="Red" Canvas.Left="0" Canvas.Bottom="0" Width="30" Height="30"/>
+        <Rectangle Fill="Red" Canvas.Left="540" Canvas.Bottom="0" Width="30" Height="30"/>
+    </Canvas>
+    
+</Window>
