@@ -7,14 +7,41 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "WPFUI/1.0.0": {
+        "dependencies": {
+          "SnakeGame.Models": "1.0.0",
+          "SnakeGame.ViewModels": "1.0.0"
+        },
         "runtime": {
           "WPFUI.dll": {}
+        }
+      },
+      "SnakeGame.Models/1.0.0": {
+        "runtime": {
+          "SnakeGame.Models.dll": {}
+        }
+      },
+      "SnakeGame.ViewModels/1.0.0": {
+        "dependencies": {
+          "SnakeGame.Models": "1.0.0"
+        },
+        "runtime": {
+          "SnakeGame.ViewModels.dll": {}
         }
       }
     }
   },
   "libraries": {
     "WPFUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SnakeGame.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SnakeGame.ViewModels/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

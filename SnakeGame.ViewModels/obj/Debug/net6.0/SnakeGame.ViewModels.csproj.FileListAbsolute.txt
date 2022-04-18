@@ -1,0 +1,15 @@
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.ViewModels\bin\Debug\net6.0\SnakeGame.ViewModels.deps.json
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.ViewModels\bin\Debug\net6.0\SnakeGame.ViewModels.dll
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.ViewModels\bin\Debug\net6.0\SnakeGame.ViewModels.pdb
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.ViewModels\bin\Debug\net6.0\SnakeGame.Models.dll
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.ViewModels\bin\Debug\net6.0\SnakeGame.Models.pdb
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.ViewModels\obj\Debug\net6.0\SnakeGame.ViewModels.csproj.AssemblyReference.cache
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.ViewModels\obj\Debug\net6.0\SnakeGame.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.ViewModels\obj\Debug\net6.0\SnakeGame.ViewModels.AssemblyInfoInputs.cache
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.ViewModels\obj\Debug\net6.0\SnakeGame.ViewModels.AssemblyInfo.cs
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.ViewModels\obj\Debug\net6.0\SnakeGame.ViewModels.csproj.CoreCompileInputs.cache
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.ViewModels\obj\Debug\net6.0\SnakeGame.ViewModels.csproj.CopyComplete
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.ViewModels\obj\Debug\net6.0\SnakeGame.ViewModels.dll
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.ViewModels\obj\Debug\net6.0\refint\SnakeGame.ViewModels.dll
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.ViewModels\obj\Debug\net6.0\SnakeGame.ViewModels.pdb
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.ViewModels\obj\Debug\net6.0\ref\SnakeGame.ViewModels.dll

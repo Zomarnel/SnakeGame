@@ -1,0 +1,12 @@
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.Models\bin\Debug\net6.0\SnakeGame.Models.deps.json
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.Models\bin\Debug\net6.0\SnakeGame.Models.dll
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.Models\bin\Debug\net6.0\SnakeGame.Models.pdb
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.Models\obj\Debug\net6.0\SnakeGame.Models.csproj.AssemblyReference.cache
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.Models\obj\Debug\net6.0\SnakeGame.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.Models\obj\Debug\net6.0\SnakeGame.Models.AssemblyInfoInputs.cache
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.Models\obj\Debug\net6.0\SnakeGame.Models.AssemblyInfo.cs
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.Models\obj\Debug\net6.0\SnakeGame.Models.csproj.CoreCompileInputs.cache
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.Models\obj\Debug\net6.0\SnakeGame.Models.dll
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.Models\obj\Debug\net6.0\refint\SnakeGame.Models.dll
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.Models\obj\Debug\net6.0\SnakeGame.Models.pdb
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\SnakeGame.Models\obj\Debug\net6.0\ref\SnakeGame.Models.dll
