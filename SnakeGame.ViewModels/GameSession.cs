@@ -8,7 +8,7 @@ namespace SnakeGame.ViewModels
 
         public GameSession()
         {
-            Player = new Player(100, 100);
+            Player = new Player();  
         }
     }
 }

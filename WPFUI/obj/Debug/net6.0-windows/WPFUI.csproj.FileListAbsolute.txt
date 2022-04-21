@@ -7,7 +7,6 @@ C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\WPF
 C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\WPFUI_MarkupCompile.cache
-C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\WPFUI_MarkupCompile.lref
 C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\MainWindow.baml
 C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\WPFUI.g.resources
 C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\WPFUI.GeneratedMSBuildEditorConfig.editorconfig

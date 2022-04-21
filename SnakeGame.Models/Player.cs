@@ -1,15 +1,14 @@
 ﻿
-
 namespace SnakeGame.Models
 {
     public class Player
     {
-        public double XCoordinate { get; set; }
-        public double YCoordinate { get; set; }
-        public Player(double xCoordinate, double yCoordinate)
+        public SnakeBody SnakeHead { get; set; }
+        public SnakeBody SnakeTail { get; set; }
+        public List<SnakeBody> SnakeBody { get; set; }
+        public Player()
         {
-            XCoordinate = xCoordinate;
-            YCoordinate = yCoordinate;  
+            SnakeHead = new SnakeBody(90, 210);
         }
     }
 }

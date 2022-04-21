@@ -3,16 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPFUI"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
+        KeyUp="OnKeyDown"
         Title="MainWindow" Height="608" Width="585">
     
     <Canvas Background="LightBlue" MaxWidth="570" MaxHeight="570">
         
-        <Canvas x:Name="CanvasPlayGround" Canvas.Left="30" Canvas.Bottom="30" Background="Red" Height="450" Width="510" Panel.ZIndex="99"/>
+        <Canvas x:Name="CanvasPlayGround"
+                Canvas.Left="30" Canvas.Bottom="30" 
+                Height="450" Width="510"
+                Panel.ZIndex="99"/>
+        
         <Canvas Canvas.Left="0" Canvas.Bottom="0" Background="#578a34" Height="500" Width="570"/>
         <Canvas Canvas.Left="0" Canvas.Bottom="500" Background="#4a752c" Height="70" Width="570"/>
+        
     </Canvas>
 </Window>

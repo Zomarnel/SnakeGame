@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v6.0": {
       "WPFUI/1.0.0": {
         "dependencies": {
-          "SnakeGame.Models": "1.0.0",
           "SnakeGame.ViewModels": "1.0.0"
         },
         "runtime": {

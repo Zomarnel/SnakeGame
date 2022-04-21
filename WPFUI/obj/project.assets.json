@@ -41,7 +41,6 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "SnakeGame.Models >= 1.0.0",
       "SnakeGame.ViewModels >= 1.0.0"
     ]
   },
@@ -77,9 +76,6 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\Bouazza\\Desktop\\C#Projects\\SnakeGame\\SnakeGame.Models\\SnakeGame.Models.csproj": {
-              "projectPath": "C:\\Users\\Bouazza\\Desktop\\C#Projects\\SnakeGame\\SnakeGame.Models\\SnakeGame.Models.csproj"
-            },
             "C:\\Users\\Bouazza\\Desktop\\C#Projects\\SnakeGame\\SnakeGame.ViewModels\\SnakeGame.ViewModels.csproj": {
               "projectPath": "C:\\Users\\Bouazza\\Desktop\\C#Projects\\SnakeGame\\SnakeGame.ViewModels\\SnakeGame.ViewModels.csproj"
             }
