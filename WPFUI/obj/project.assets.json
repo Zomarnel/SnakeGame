@@ -1,48 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {
-      "SnakeGame.Models/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/SnakeGame.Models.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/SnakeGame.Models.dll": {}
-        }
-      },
-      "SnakeGame.ViewModels/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "SnakeGame.Models": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/SnakeGame.ViewModels.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/SnakeGame.ViewModels.dll": {}
-        }
-      }
-    }
+    "net6.0-windows7.0": {}
   },
-  "libraries": {
-    "SnakeGame.Models/1.0.0": {
-      "type": "project",
-      "path": "../SnakeGame.Models/SnakeGame.Models.csproj",
-      "msbuildProject": "../SnakeGame.Models/SnakeGame.Models.csproj"
-    },
-    "SnakeGame.ViewModels/1.0.0": {
-      "type": "project",
-      "path": "../SnakeGame.ViewModels/SnakeGame.ViewModels.csproj",
-      "msbuildProject": "../SnakeGame.ViewModels/SnakeGame.ViewModels.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": [
-      "SnakeGame.ViewModels >= 1.0.0"
-    ]
+    "net6.0-windows7.0": []
   },
   "packageFolders": {
     "C:\\Users\\Bouazza\\.nuget\\packages\\": {},
@@ -75,11 +38,7 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {
-            "C:\\Users\\Bouazza\\Desktop\\C#Projects\\SnakeGame\\SnakeGame.ViewModels\\SnakeGame.ViewModels.csproj": {
-              "projectPath": "C:\\Users\\Bouazza\\Desktop\\C#Projects\\SnakeGame\\SnakeGame.ViewModels\\SnakeGame.ViewModels.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
