@@ -19,5 +19,9 @@ namespace WPFUI.ViewModels
         {
             OnRaisedDrawSnake?.Invoke(this, canvas);
         }
+        public void MoveSnake()
+        {
+            Snake.Move();
+        }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using WPFUI.ViewModels;
+using WPFUI.Models;
 
 namespace WPFUI.UI
 {
@@ -40,6 +42,7 @@ namespace WPFUI.UI
                     {
                         Width = 30,
                         Height = 30,
+                        StrokeThickness = 0
                     };
 
                     if (isDark)
@@ -52,7 +55,7 @@ namespace WPFUI.UI
                     }
 
 
-                    CanvasPlayGround.Children.Add(rectangle);
+                    CanvasPlayGroundGrid.Children.Add(rectangle);
 
                     Canvas.SetLeft(rectangle, xCoordinate);
                     Canvas.SetBottom(rectangle, yCoordinate);
@@ -67,7 +70,32 @@ namespace WPFUI.UI
         }
         private void DrawSnake(object sender, EventArgs e)
         {
+            if(_gameSession.Snake.Direction != Snake.Directions.Null)
+            {
+                _gameSession.MoveSnake();
+            }
+
+            CanvasPlayGround.Children.Clear();
+
             _gameSession.DrawSnake(CanvasPlayGround);
+        }
+        private void OnKeyDown(object sender, KeyEventArgs e)
+        {
+            switch(e.Key)
+            {
+                case Key.Left:
+                    _gameSession.Snake.Direction = Snake.Directions.Left;
+                    break;
+                case Key.Right:
+                    _gameSession.Snake.Direction = Snake.Directions.Right;
+                    break;
+                case Key.Down:
+                    _gameSession.Snake.Direction = Snake.Directions.Down;
+                    break;
+                case Key.Up:
+                    _gameSession.Snake.Direction = Snake.Directions.Up;
+                    break;
+            }
         }
     }
 }
