@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="627" Width="585">
+    
+    <Canvas>
+        <Canvas Canvas.Left="30" x:Name="CanvasPlayGround" Canvas.Bottom="30" Width="510" Height="450" Background="Aquamarine" Panel.ZIndex="99"/>
+        <Canvas Canvas.Left="0" Canvas.Bottom="0" Width="570" Height="510" Background="#578a34"/>
+        <Canvas Canvas.Left="0" Canvas.Bottom="510" Width="570" Height="80" Background="#4a752c"/>
+    </Canvas>
 </Window>

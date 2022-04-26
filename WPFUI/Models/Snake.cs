@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace WPFUI.Models
 {
@@ -11,6 +12,19 @@ namespace WPFUI.Models
             SnakeHead = new SnakeHead(startingPositionX, startingPositionY);
 
             SnakeBody = new List<SnakeBodyPart>();
+            /*{
+                new SnakeBodyPart(startingPositionX-30, startingPositionY),
+                new SnakeBodyPart(startingPositionX-60, startingPositionY)
+            };*/
+        }
+        internal void Draw(object sender, Canvas canvas)
+        {
+            SnakeHead.DrawPartOnCanvas(canvas);
+            
+            foreach(SnakeBodyPart snakeBodyPart in SnakeBody)
+            {
+                snakeBodyPart.DrawPartOnCanvas(canvas);
+            }
         }
     }
 }
