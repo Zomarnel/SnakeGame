@@ -17,15 +17,16 @@ namespace WPFUI.UI
             X = 150,
             Y = 90
         });
+
+        private DispatcherTimer _gameTimer = new DispatcherTimer();
         public MainWindow()
         {
             InitializeComponent();
             CreatePlayGroundGrid();
 
-            DispatcherTimer gameTimer = new DispatcherTimer();
-            gameTimer.Interval = TimeSpan.FromMilliseconds(100);
-            gameTimer.Tick += DrawSnake;
-            gameTimer.Start();
+            _gameTimer.Interval = TimeSpan.FromMilliseconds(70);
+            _gameTimer.Tick += DrawSnake;
+            _gameTimer.Start();
         }
         private void CreatePlayGroundGrid()
         {
@@ -81,21 +82,24 @@ namespace WPFUI.UI
         }
         private void OnKeyDown(object sender, KeyEventArgs e)
         {
-            switch(e.Key)
+
+            if(e.Key == Key.Left && _gameSession.Snake.Direction != Snake.Directions.Right)
             {
-                case Key.Left:
-                    _gameSession.Snake.Direction = Snake.Directions.Left;
-                    break;
-                case Key.Right:
-                    _gameSession.Snake.Direction = Snake.Directions.Right;
-                    break;
-                case Key.Down:
-                    _gameSession.Snake.Direction = Snake.Directions.Down;
-                    break;
-                case Key.Up:
-                    _gameSession.Snake.Direction = Snake.Directions.Up;
-                    break;
+                _gameSession.Snake.Direction = Snake.Directions.Left;
             }
+            if (e.Key == Key.Right && _gameSession.Snake.Direction != Snake.Directions.Left)
+            {
+                _gameSession.Snake.Direction = Snake.Directions.Right;
+            }
+            if (e.Key == Key.Down && _gameSession.Snake.Direction != Snake.Directions.Up)
+            {
+                _gameSession.Snake.Direction = Snake.Directions.Down;
+            }
+            if (e.Key == Key.Up && _gameSession.Snake.Direction != Snake.Directions.Down)
+            {
+                _gameSession.Snake.Direction = Snake.Directions.Up;
+            }
+
         }
     }
 }
