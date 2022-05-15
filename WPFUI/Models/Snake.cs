@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Controls;
 
 namespace WPFUI.Models
@@ -13,7 +14,7 @@ namespace WPFUI.Models
             Right,
             Up,
             Down,
-            Null
+            StartingPosition
         }
         public Directions Direction { get; set; }
         public Snake(int startingPositionX, int startingPositionY)
@@ -23,10 +24,12 @@ namespace WPFUI.Models
             SnakeBody = new List<SnakeBodyPart>()
             {
                 new SnakeBodyPart(startingPositionX-30, startingPositionY),
-                new SnakeBodyPart(startingPositionX-60, startingPositionY)
+                new SnakeBodyPart(startingPositionX-60, startingPositionY),
+                new SnakeBodyPart(startingPositionX-90, startingPositionY),
+                new SnakeBodyPart(startingPositionX-120, startingPositionY)
             };
 
-            Direction = Directions.Null;
+            Direction = Directions.StartingPosition;
         }
         internal void Draw(object sender, Canvas canvas)
         {
@@ -39,7 +42,9 @@ namespace WPFUI.Models
         }
         public void Move()
         {
-            if(SnakeBody.Count > 0 && SnakeHead.Move(Direction))
+            bool result = SnakeHead.Move(Direction);
+
+            if (SnakeBody.Count > 0 && result)
             {
                 for (int i = SnakeBody.Count - 1; i > 0; i--)
                 {
@@ -50,7 +55,6 @@ namespace WPFUI.Models
                 SnakeBody[0].XCoordinate = SnakeHead.OldXCoordinate;
                 SnakeBody[0].YCoordinate = SnakeHead.OldYCoordinate;
             }
-
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-namespace WPFUI.Models
+﻿namespace WPFUI.Models
 {
     public class SnakeHead : SnakePart
     {
@@ -15,19 +14,19 @@ namespace WPFUI.Models
             OldXCoordinate = XCoordinate;
             OldYCoordinate = YCoordinate;
 
-            if(snakeDirection == Snake.Directions.Left && XCoordinate > 0)
+            if (snakeDirection == Snake.Directions.Left)
             {
                 XCoordinate -= 30;
             }
-            else if(snakeDirection == Snake.Directions.Right && XCoordinate < 470)
+            else if (snakeDirection == Snake.Directions.Right)
             {
                 XCoordinate += 30;
             }
-            else if(snakeDirection == Snake.Directions.Down && YCoordinate > 0)
+            else if (snakeDirection == Snake.Directions.Down)
             {
                 YCoordinate -= 30;
             }
-            else if(snakeDirection == Snake.Directions.Up && YCoordinate < 420)
+            else if (snakeDirection == Snake.Directions.Up)
             {
                 YCoordinate += 30;
             }

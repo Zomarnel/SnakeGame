@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -12,11 +13,7 @@ namespace WPFUI.UI
 {
     public partial class MainWindow : Window
     {
-        private GameSession _gameSession = new GameSession(new System.Drawing.Point()
-        {
-            X = 150,
-            Y = 90
-        });
+        private GameSession _gameSession = new GameSession(150, 90);
 
         private DispatcherTimer _gameTimer = new DispatcherTimer();
         public MainWindow()
@@ -71,19 +68,19 @@ namespace WPFUI.UI
         }
         private void DrawSnake(object sender, EventArgs e)
         {
-            if(_gameSession.Snake.Direction != Snake.Directions.Null)
-            {
-                _gameSession.MoveSnake();
-            }
-
             CanvasPlayGround.Children.Clear();
+
+            _gameSession.MoveSnake();
+
+            CollisionCheck();
 
             _gameSession.DrawSnake(CanvasPlayGround);
         }
         private void OnKeyDown(object sender, KeyEventArgs e)
         {
+            Thread.Sleep(70);
 
-            if(e.Key == Key.Left && _gameSession.Snake.Direction != Snake.Directions.Right)
+            if (e.Key == Key.Left && _gameSession.Snake.Direction != Snake.Directions.Right && _gameSession.Snake.Direction != Snake.Directions.StartingPosition)
             {
                 _gameSession.Snake.Direction = Snake.Directions.Left;
             }
@@ -100,6 +97,19 @@ namespace WPFUI.UI
                 _gameSession.Snake.Direction = Snake.Directions.Up;
             }
 
+            DrawSnake(sender, e);
         }
+        private void CollisionCheck()
+        {
+            if(_gameSession.Snake.SnakeHead.XCoordinate < 0 || _gameSession.Snake.SnakeHead.XCoordinate > 480 || _gameSession.Snake.SnakeHead.YCoordinate < 0 || _gameSession.Snake.SnakeHead.YCoordinate > 420)
+            {
+                GameOver();
+            }
+        }
+        private void GameOver()
+        {
+            _gameSession = new GameSession(150, 90);
+        }
+
     }
 }

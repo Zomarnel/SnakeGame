@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="627" Width="585"
         KeyDown="OnKeyDown">
-    
+
     <Canvas>
         <Canvas Canvas.Left="30" x:Name="CanvasPlayGround" Canvas.Bottom="30" Width="510" Height="450" Panel.ZIndex="99"/>
         <Canvas Canvas.Left="30" x:Name="CanvasPlayGroundGrid" Canvas.Bottom="30" Width="510" Height="450" Panel.ZIndex="1"/>

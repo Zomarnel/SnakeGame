@@ -10,9 +10,9 @@ namespace WPFUI.ViewModels
         public Snake Snake { get; set; }
 
         public event EventHandler<Canvas> OnRaisedDrawSnake;
-        public GameSession(Point startingPosition)
+        public GameSession(int startingPositionX, int startingPositionY)
         {
-            Snake = new Snake(startingPosition.X, startingPosition.Y);
+            Snake = new Snake(startingPositionX, startingPositionY);
             OnRaisedDrawSnake += Snake.Draw;
         }
         public void DrawSnake(Canvas canvas)
@@ -21,7 +21,11 @@ namespace WPFUI.ViewModels
         }
         public void MoveSnake()
         {
-            Snake.Move();
+            if(Snake.Direction != Snake.Directions.StartingPosition)
+            {
+                Snake.Move();
+            }
         }
+
     }
 }
