@@ -12,7 +12,7 @@ namespace WPFUI.UI
 {
     public partial class MainWindow : Window
     {
-        private GameSession _gameSession = new GameSession(150, 90);
+        private GameSession _gameSession = new GameSession();
 
         private bool _hasCarriedOutMovement = false;
 
@@ -71,6 +71,7 @@ namespace WPFUI.UI
 
             _gameSession.DrawSnake(CanvasPlayGround);
         }
+
         #endregion SnakeMovement
 
         #region Initialization
@@ -131,7 +132,7 @@ namespace WPFUI.UI
         #endregion Initialization
         private void GameOver()
         {
-            _gameSession = new GameSession(150, 90);
+            _gameSession = new GameSession();
         }
 
     }

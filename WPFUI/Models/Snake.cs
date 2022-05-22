@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows.Controls;
 
 namespace WPFUI.Models
@@ -42,9 +41,9 @@ namespace WPFUI.Models
         }
         public void Move()
         {
-            bool result = SnakeHead.Move(Direction);
+            bool hasHeadMoved = SnakeHead.Move(Direction);
 
-            if (SnakeBody.Count > 0 && result)
+            if (SnakeBody.Count > 0 && hasHeadMoved)
             {
                 for (int i = SnakeBody.Count - 1; i > 0; i--)
                 {

@@ -1,5 +1,4 @@
 ﻿using WPFUI.Models;
-using System.Drawing;
 using System.Windows.Controls;
 using System;
 
@@ -10,9 +9,12 @@ namespace WPFUI.ViewModels
         public Snake Snake { get; set; }
 
         public event EventHandler<Canvas> OnRaisedDrawSnake;
-        public GameSession(int startingPositionX, int startingPositionY)
+
+        public int StartingPositionX = 150;
+        public int StartingPositionY = 90;
+        public GameSession()
         {
-            Snake = new Snake(startingPositionX, startingPositionY);
+            Snake = new Snake(StartingPositionX, StartingPositionY);
             OnRaisedDrawSnake += Snake.Draw;
         }
         public void DrawSnake(Canvas canvas)
