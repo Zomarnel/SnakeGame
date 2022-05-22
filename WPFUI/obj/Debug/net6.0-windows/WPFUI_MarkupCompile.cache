@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\App.xaml
-11939815530
+2-2096306594
 
-8748637869
+9244160461
 194-1951243044
-UI\MainWindow.xaml;
+UI\MainWindow.xaml;UI\Windows\PlayAgainMessage.xaml;
 
 False
 

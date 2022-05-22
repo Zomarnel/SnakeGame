@@ -19,3 +19,5 @@ C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\UI\
 C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\WPFUI_MarkupCompile.lref
 C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\UI\MainWindow.baml
 C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\WPFUI.g.resources
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\UI\Windows\PlayAgainMessage.baml
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\UI\Windows\PlayAgainMessage.g.cs

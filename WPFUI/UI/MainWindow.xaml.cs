@@ -5,6 +5,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using WPFUI.UI.Windows;
 using WPFUI.ViewModels;
 using WPFUI.Models;
 
@@ -15,6 +16,9 @@ namespace WPFUI.UI
         private GameSession _gameSession = new GameSession();
 
         private bool _hasCarriedOutMovement = false;
+
+        private DispatcherTimer _updateTimer = new DispatcherTimer();
+        private DispatcherTimer _moveSnakeTimer = new DispatcherTimer(); 
 
         private int _updateInterval = 1;
         private int _moveSnakeInterval = 90;
@@ -77,16 +81,13 @@ namespace WPFUI.UI
         #region Initialization
         private void InitializeTimers()
         {
-            DispatcherTimer updateTimer = new DispatcherTimer();
-            DispatcherTimer moveSnakeTimer = new DispatcherTimer();
+            _updateTimer.Interval = TimeSpan.FromMilliseconds(_updateInterval);
+            _updateTimer.Tick += DrawSnake;
+            
+            _moveSnakeTimer.Interval = TimeSpan.FromMilliseconds(_moveSnakeInterval);
+            _moveSnakeTimer.Tick += MoveSnake;
 
-            updateTimer.Interval = TimeSpan.FromMilliseconds(_updateInterval);
-            updateTimer.Tick += DrawSnake;
-            updateTimer.Start();
-
-            moveSnakeTimer.Interval = TimeSpan.FromMilliseconds(_moveSnakeInterval);
-            moveSnakeTimer.Tick += MoveSnake;
-            moveSnakeTimer.Start();
+            StartTimers();
         }
         private void CreatePlayGroundGrid()
         {
@@ -129,10 +130,33 @@ namespace WPFUI.UI
                 xCoordinate += 30;
             }
         }
+
         #endregion Initialization
+
+        #region Timers
+        private void StopTimers()
+        {
+            _updateTimer.Stop();
+            _moveSnakeTimer.Stop();
+        }
+        private void StartTimers()
+        {
+            _updateTimer.Start();
+            _moveSnakeTimer.Start();
+        }
+
+        #endregion Timers
         private void GameOver()
         {
+            StopTimers();
+
+            PlayAgainMessage playAgainMessage = new PlayAgainMessage();
+            playAgainMessage.Owner = this;
+            playAgainMessage.ShowDialog();
+
             _gameSession = new GameSession();
+
+            StartTimers();
         }
 
     }
