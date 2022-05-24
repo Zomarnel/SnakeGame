@@ -6,9 +6,26 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterOwner"
         Height="450" Width="350"
+        FontSize="15pt"
         Background="LightSalmon">
+
+    <Window.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Border" Background="Blue" CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     
     <Grid Margin="5, 5, 5, 5">
+
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
@@ -22,9 +39,37 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Button Content="Play Again" Grid.Column="0" Margin="0, 5, 5, 0" Click="OnClick_StartNewGame"/>
-            <Button Content="Options" Grid.Column="1" Margin="0, 5, 0, 0" Height="100" Width="150"/>
+            <Button Style="{StaticResource ButtonStyle}"
+                    Grid.Column="0"
+                    Margin="0, 5, 5, 0"
+                    Click="OnClick_StartNewGame"
+                    MouseEnter="OnMouseEnter"
+                    MouseLeave="OnMouseLeave"
+                    Foreground="White">
+                <Button.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
+                        <Image Grid.Column="0" Source="/Images/PlayAgain.png" Height="50" Width="50" HorizontalAlignment="Center"/>
+                        <Label Grid.Column="1" Content="Play Again!" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
+                    </Grid>
+                </Button.Content>
+            </Button>
+
+            <Button Style="{StaticResource ButtonStyle}"
+                    Grid.Column="1"
+                    Margin="5, 5, 0, 0"
+                    Foreground="White"
+                    MouseEnter="OnMouseEnter"
+                    MouseLeave="OnMouseLeave"
+                    Height="100" Width="75">
+                <Button.Content>
+                    <Image Source="/Images/Options_Gear.png" Height="50" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Button.Content>
+            </Button>
         </Grid>
     </Grid>
 </Window>

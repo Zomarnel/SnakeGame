@@ -7,4 +7,16 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\Options_Gear.png" />
+    <None Remove="Images\PlayAgain.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Options_Gear.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\PlayAgain.png" />
+  </ItemGroup>
+
 </Project>

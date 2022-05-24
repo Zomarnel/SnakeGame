@@ -32,6 +32,7 @@ namespace WPFUI.UI
         #region SnakeMovement
         private void OnKeyDown(object sender, KeyEventArgs e)
         {
+
             if (!_hasCarriedOutMovement)
             {
                 if (e.Key == Key.Left && _gameSession.Snake.Direction != Snake.Directions.Right && _gameSession.Snake.Direction != Snake.Directions.StartingPosition)
@@ -158,6 +159,5 @@ namespace WPFUI.UI
 
             StartTimers();
         }
-
     }
 }
