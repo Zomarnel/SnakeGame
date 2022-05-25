@@ -8,15 +8,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Fruits\apple.png" />
+    <None Remove="Images\Fruits\secondApple.png" />
     <None Remove="Images\Options_Gear.png" />
     <None Remove="Images\PlayAgain.png" />
+    <None Remove="UI\Snakegame.ico" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Fruits\apple.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Fruits\secondApple.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Options_Gear.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\PlayAgain.png" />
+    <Resource Include="Images\PlayAgain.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Snakegame.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

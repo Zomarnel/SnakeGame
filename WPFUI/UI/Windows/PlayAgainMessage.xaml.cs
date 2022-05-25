@@ -17,7 +17,7 @@ namespace WPFUI.UI.Windows
         const uint MF_BYCOMMAND = 0x00000000;
         const uint MF_GRAYED = 0x00000001;
 
-        const uint SC_CLOSE = 0xF060;*/ 
+        const uint SC_CLOSE = 0xF060; 
 
         public PlayAgainMessage()
         {

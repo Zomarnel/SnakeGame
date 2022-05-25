@@ -26,8 +26,6 @@
     </Window.Resources>
     
     <Grid Margin="5, 5, 5, 5">
-
-
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
@@ -54,7 +52,6 @@
                             <ColumnDefinition Width="80"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-
                         <Image Grid.Column="0" Source="/Images/PlayAgain.png" Height="50" Width="50" HorizontalAlignment="Center"/>
                         <Label Grid.Column="1" Content="Play Again!" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
                     </Grid>
