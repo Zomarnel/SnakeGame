@@ -71,7 +71,7 @@ namespace WPFUI.UI
                 GameOver();
             }
         }
-        private void DrawSnake(object sender, EventArgs e)
+        private void UpdateGame(object sender, EventArgs e)
         {
             CanvasPlayGround.Children.Clear();
 
@@ -84,7 +84,7 @@ namespace WPFUI.UI
         private void InitializeTimers()
         {
             _updateTimer.Interval = TimeSpan.FromMilliseconds(_updateInterval);
-            _updateTimer.Tick += DrawSnake;
+            _updateTimer.Tick += UpdateGame;
             
             _moveSnakeTimer.Interval = TimeSpan.FromMilliseconds(_moveSnakeInterval);
             _moveSnakeTimer.Tick += MoveSnake;
