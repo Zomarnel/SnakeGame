@@ -49,6 +49,7 @@
                        Grid.Column="0"
                        Width="60"
                        Height="60"
+                       Margin="0, 0, 0, 10"
                        Source="/Images/Fruits/apple.png" 
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
@@ -57,12 +58,13 @@
                        Grid.Column="1"
                        Width="60"
                        Height="60"
+                       Margin="0, 0, 0, 10"
                        Source="/Images/Helpers/trophy.png" 
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
 
-                <Label Content="SCORE" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="0"/>
-                <Label Content="RECORD" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="0"/>
+                <Label Content="0" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="0" FontSize="25pt"/>
+                <Label Content="0" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="0" FontSize="25pt"/>
 
                 <Image Grid.Row="1" Grid.ColumnSpan="2" Source="/Images/Snakegame.ico" HorizontalAlignment="Center"/>
 
