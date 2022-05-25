@@ -8,6 +8,7 @@ using System.Windows.Threading;
 using WPFUI.UI.Windows;
 using WPFUI.ViewModels;
 using WPFUI.Models;
+using System.Windows.Media.Effects;
 
 namespace WPFUI.UI
 {
@@ -151,11 +152,15 @@ namespace WPFUI.UI
         {
             StopTimers();
 
+            this.Opacity = 0.5;
+
             PlayAgainMessage playAgainMessage = new PlayAgainMessage();
             playAgainMessage.Owner = this;
             playAgainMessage.ShowDialog();
 
             _gameSession = new GameSession();
+
+            this.Opacity = 1;
 
             StartTimers();
         }

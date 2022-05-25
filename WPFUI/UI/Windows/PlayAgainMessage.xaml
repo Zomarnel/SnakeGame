@@ -9,7 +9,8 @@
         ResizeMode="NoResize"
         Height="450" Width="350"
         FontSize="15pt"
-        Background="LightSalmon">
+        Background="Transparent"
+        AllowsTransparency="True">
 
     <Window.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
@@ -25,14 +26,50 @@
         </Style>
     </Window.Resources>
     
-    <Grid Margin="5, 5, 5, 5">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
-        <Label Grid.Row="0"  Background="Red" Content="SCORE" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         
+        <!--Score and Record-->
+        <Border Grid.Row="0" Background="LightBlue" CornerRadius="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Image Grid.Row="0"
+                       Grid.Column="0"
+                       Width="60"
+                       Height="60"
+                       Source="/Images/Fruits/apple.png" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+
+                <Image Grid.Row="0"
+                       Grid.Column="1"
+                       Width="60"
+                       Height="60"
+                       Source="/Images/Helpers/trophy.png" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+
+                <Label Content="SCORE" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="0"/>
+                <Label Content="RECORD" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="0"/>
+
+                <Image Grid.Row="1" Grid.ColumnSpan="2" Source="/Images/Snakegame.ico" HorizontalAlignment="Center"/>
+
+            </Grid>
+        </Border>
+        
+        <!--Buttons-->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -52,7 +89,7 @@
                             <ColumnDefinition Width="80"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" Source="/Images/PlayAgain.png" Height="50" Width="50" HorizontalAlignment="Center"/>
+                        <Image Grid.Column="0" Source="/Images/Helpers/PlayAgain.png" Height="50" Width="50" HorizontalAlignment="Center"/>
                         <Label Grid.Column="1" Content="Play Again!" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
                     </Grid>
                 </Button.Content>
@@ -66,9 +103,11 @@
                     MouseLeave="OnMouseLeave"
                     Height="100" Width="75">
                 <Button.Content>
-                    <Image Source="/Images/Options_Gear.png" Height="50" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Source="/Images/Helpers/Options_Gear.png" Height="50" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Button.Content>
             </Button>
+            
         </Grid>
+        
     </Grid>
 </Window>

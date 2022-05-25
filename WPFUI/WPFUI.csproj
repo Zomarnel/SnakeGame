@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <None Remove="Images\Fruits\apple.png" />
-    <None Remove="Images\Fruits\secondApple.png" />
+    <None Remove="Images\Helpers\trophy.png" />
     <None Remove="Images\Options_Gear.png" />
     <None Remove="Images\PlayAgain.png" />
     <None Remove="UI\Snakegame.ico" />
@@ -19,13 +19,13 @@
     <Resource Include="Images\Fruits\apple.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\Fruits\secondApple.png">
+    <Resource Include="Images\Helpers\Options_Gear.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\Options_Gear.png">
+    <Resource Include="Images\Helpers\PlayAgain.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\PlayAgain.png">
+    <Resource Include="Images\Helpers\trophy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Snakegame.ico">

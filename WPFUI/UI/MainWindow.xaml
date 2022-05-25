@@ -7,7 +7,8 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Title="Snakegame" Height="627" Width="584"
-        KeyDown="OnKeyDown" Icon="/Images/Snakegame.ico">
+        KeyDown="OnKeyDown" Icon="/Images/Snakegame.ico"
+        Opacity="50">
 
     <Canvas>
         <Canvas Canvas.Left="30" x:Name="CanvasPlayGround" Canvas.Bottom="30" Width="510" Height="450" Panel.ZIndex="99"/>
