@@ -63,8 +63,9 @@
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
 
-                <Label Content="0" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="0" FontSize="25pt"/>
-                <Label Content="0" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="0" FontSize="25pt"/>
+                <Label Content="0" x:Name="ScoreLabel" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="0" FontSize="25pt"/>
+                
+                <Label Content="0" x:Name="RecordLabel" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="0" FontSize="25pt"/>
 
                 <Image Grid.Row="1" Grid.ColumnSpan="2" Source="/Images/Snakegame.ico" HorizontalAlignment="Center"/>
 

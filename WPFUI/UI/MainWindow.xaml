@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:WPFUI.ViewModels"
+        d:DataContext="{d:DesignInstance viewModels:GameSession}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
@@ -14,6 +16,17 @@
         <Canvas Canvas.Left="30" x:Name="CanvasPlayGround" Canvas.Bottom="30" Width="510" Height="450" Panel.ZIndex="99"/>
         <Canvas Canvas.Left="30" x:Name="CanvasPlayGroundGrid" Canvas.Bottom="30" Width="510" Height="450" Panel.ZIndex="1"/>
         <Canvas Canvas.Left="0" Canvas.Bottom="0" Width="570" Height="510" Background="#578a34"/>
-        <Canvas Canvas.Left="0" Canvas.Bottom="510" Width="570" Height="80" Background="#4a752c"/>
+        <Canvas Canvas.Left="0" Canvas.Bottom="510" Width="570" Height="80" Background="#4a752c">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0" Margin="0, 20, 15, 0" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Images/Fruits/apple.png" Width="40" Height="40"/>
+                <Label Grid.Column="0" Margin="0, 20, 12, 0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Content="{Binding Score}" Foreground="White" FontSize="17pt"/>
+            </Grid>
+        </Canvas>
     </Canvas>
 </Window>

@@ -19,9 +19,11 @@ namespace WPFUI.UI.Windows
 
         const uint SC_CLOSE = 0xF060; 
 
-        public PlayAgainMessage()
+        public PlayAgainMessage(int playerScore)
         {
             InitializeComponent();
+
+            ScoreLabel.Content = playerScore.ToString();
         }
         private void OnClick_StartNewGame(object sender, RoutedEventArgs e)
         {

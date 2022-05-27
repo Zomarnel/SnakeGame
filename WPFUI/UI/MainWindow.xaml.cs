@@ -22,12 +22,14 @@ namespace WPFUI.UI
         private DispatcherTimer _moveSnakeTimer = new DispatcherTimer(); 
 
         private int _updateInterval = 1;
-        private int _moveSnakeInterval = 90;
+        private int _moveSnakeInterval = 100;
         public MainWindow()
         {
             InitializeComponent();
             InitializeTimers();
             CreatePlayGroundGrid();
+
+            DataContext = _gameSession; 
         }
 
         #region SnakeMovement
@@ -69,6 +71,9 @@ namespace WPFUI.UI
             if (_gameSession.Snake.SnakeHead.XCoordinate < 0 || _gameSession.Snake.SnakeHead.XCoordinate > 480 || _gameSession.Snake.SnakeHead.YCoordinate < 0 || _gameSession.Snake.SnakeHead.YCoordinate > 420)
             {
                 GameOver();
+            }else
+            {
+                _gameSession.CheckForFruitCollisionWithSnake();
             }
         }
         private void UpdateGame(object sender, EventArgs e)
@@ -76,6 +81,8 @@ namespace WPFUI.UI
             CanvasPlayGround.Children.Clear();
 
             _gameSession.DrawSnake(CanvasPlayGround);
+
+            _gameSession.DrawFruitsOnPlayGround(CanvasPlayGround);
         }
 
         #endregion SnakeMovement
@@ -154,11 +161,13 @@ namespace WPFUI.UI
 
             this.Opacity = 0.5;
 
-            PlayAgainMessage playAgainMessage = new PlayAgainMessage();
+            PlayAgainMessage playAgainMessage = new PlayAgainMessage(_gameSession.Score);
             playAgainMessage.Owner = this;
             playAgainMessage.ShowDialog();
 
             _gameSession = new GameSession();
+
+            DataContext = _gameSession;
 
             this.Opacity = 1;
 
