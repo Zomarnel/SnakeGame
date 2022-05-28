@@ -15,8 +15,8 @@ namespace WPFUI.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;   
 
-        public int StartingPositionX = 150;
-        public int StartingPositionY = 90;
+        public int StartingPositionX = 90;
+        public int StartingPositionY = 210;
         public int Score { get; set; } = 0;
         public FruitsControl FruitsControl { get; set; } = new FruitsControl();
         private List<Fruit> CurrentFruits { get; init; }
@@ -34,7 +34,7 @@ namespace WPFUI.ViewModels
         }
         public void MoveSnake()
         {
-            if(Snake.Direction != Snake.Directions.StartingPosition)
+            if(Snake.SnakeDirection != Directions.StartingPosition)
             {
                 Snake.Move();
             }
@@ -47,6 +47,5 @@ namespace WPFUI.ViewModels
         {
             Score += FruitsControl.CheckForFruitCollision(Snake, CurrentFruits);
         }
-
     }
 }

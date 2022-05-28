@@ -4,29 +4,29 @@
     {
         public int OldXCoordinate { get; set; }
         public int OldYCoordinate { get; set; }
-        public SnakeHead(int xCoordinate, int yCoordinate) : base(xCoordinate, yCoordinate)
+        public SnakeHead(int xCoordinate, int yCoordinate, Directions direction) : base(xCoordinate, yCoordinate, direction)
         {
             OldXCoordinate = xCoordinate;
             OldYCoordinate = yCoordinate;
         }
-        public bool Move(Snake.Directions snakeDirection)
+        public bool Move()
         {
             OldXCoordinate = XCoordinate;
             OldYCoordinate = YCoordinate;
 
-            if (snakeDirection == Snake.Directions.Left)
+            if (Direction == Directions.Left)
             {
                 XCoordinate -= 30;
             }
-            else if (snakeDirection == Snake.Directions.Right)
+            else if (Direction == Directions.Right)
             {
                 XCoordinate += 30;
             }
-            else if (snakeDirection == Snake.Directions.Down)
+            else if (Direction == Directions.Down)
             {
                 YCoordinate -= 30;
             }
-            else if (snakeDirection == Snake.Directions.Up)
+            else if (Direction == Directions.Up)
             {
                 YCoordinate += 30;
             }
@@ -36,6 +36,10 @@
             }
 
             return true;
+        }
+        public SnakeBodyPart CloneSnakeHead()
+        {
+            return new SnakeBodyPart(OldXCoordinate, OldYCoordinate, Direction);
         }
     }
 }

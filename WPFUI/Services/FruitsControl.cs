@@ -13,7 +13,7 @@ namespace WPFUI.Services
         {
             return new List<Fruit>()
             {
-                new Fruit("apple", 270, 90)
+                new Fruit("apple", 330, 210)
             };
         }
         public int CheckForFruitCollision(Snake snake, List<Fruit> fruits)
@@ -27,6 +27,7 @@ namespace WPFUI.Services
                 if(fruit.XCoordinate == snake.SnakeHead.XCoordinate && fruit.YCoordinate == snake.SnakeHead.YCoordinate)
                 {
                     fruitsToRemove.Add(fruit);
+                    snake.AddNewSnakePart();
                     score += 1;
                 }
             }

@@ -38,21 +38,21 @@ namespace WPFUI.UI
 
             if (!_hasCarriedOutMovement)
             {
-                if (e.Key == Key.Left && _gameSession.Snake.Direction != Snake.Directions.Right && _gameSession.Snake.Direction != Snake.Directions.StartingPosition)
+                if (e.Key == Key.Left && _gameSession.Snake.SnakeDirection != Directions.Right && _gameSession.Snake.SnakeDirection != Directions.StartingPosition)
                 {
-                    _gameSession.Snake.Direction = Snake.Directions.Left;
+                    _gameSession.Snake.SetNewDirection(Directions.Left);
                 }
-                if (e.Key == Key.Right && _gameSession.Snake.Direction != Snake.Directions.Left)
+                if (e.Key == Key.Right && _gameSession.Snake.SnakeDirection != Directions.Left)
                 {
-                    _gameSession.Snake.Direction = Snake.Directions.Right;
+                    _gameSession.Snake.SetNewDirection(Directions.Right);
                 }
-                if (e.Key == Key.Down && _gameSession.Snake.Direction != Snake.Directions.Up)
+                if (e.Key == Key.Down && _gameSession.Snake.SnakeDirection != Directions.Up)
                 {
-                    _gameSession.Snake.Direction = Snake.Directions.Down;
+                    _gameSession.Snake.SetNewDirection(Directions.Down);
                 }
-                if (e.Key == Key.Up && _gameSession.Snake.Direction != Snake.Directions.Down)
+                if (e.Key == Key.Up && _gameSession.Snake.SnakeDirection != Directions.Down)
                 {
-                    _gameSession.Snake.Direction = Snake.Directions.Up;
+                    _gameSession.Snake.SetNewDirection(Directions.Up);
                 }
 
                 _hasCarriedOutMovement = true;
@@ -62,13 +62,16 @@ namespace WPFUI.UI
         {
             _gameSession.MoveSnake();
 
-            CollisionCheck();
+            CollisionsCheck();
 
             _hasCarriedOutMovement = false;
         }
-        private void CollisionCheck()
+        private void CollisionsCheck()
         {
             if (_gameSession.Snake.SnakeHead.XCoordinate < 0 || _gameSession.Snake.SnakeHead.XCoordinate > 480 || _gameSession.Snake.SnakeHead.YCoordinate < 0 || _gameSession.Snake.SnakeHead.YCoordinate > 420)
+            {
+                GameOver();
+            }else if (_gameSession.Snake.IsHeadTouchingBody())
             {
                 GameOver();
             }else

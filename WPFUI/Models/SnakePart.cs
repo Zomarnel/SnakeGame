@@ -8,10 +8,13 @@ namespace WPFUI.Models
     {
         public int XCoordinate { get; set; }
         public int YCoordinate { get; set; }
-        public SnakePart(int xCoordinate, int yCoordinate)
+        public Directions Direction { get; set; }
+        public SnakePart(int xCoordinate, int yCoordinate, Directions direction)
         {
             XCoordinate = xCoordinate;
             YCoordinate = yCoordinate;
+
+            Direction = direction;
         }
         internal void DrawPartOnCanvas(Canvas canvas)
         {
