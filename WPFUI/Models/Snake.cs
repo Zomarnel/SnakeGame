@@ -8,7 +8,6 @@ namespace WPFUI.Models
     {
         public SnakeHead SnakeHead { get; set; }
         public List<SnakeBodyPart> SnakeBody { get; set; }
-
         public Directions SnakeDirection => SnakeHead.Direction;
         public Snake(int startingPositionX, int startingPositionY)
         {
@@ -32,9 +31,8 @@ namespace WPFUI.Models
         }
         public void Move()
         {
-            bool hasHeadMoved = SnakeHead.Move();
 
-            if (SnakeBody.Count > 0 && hasHeadMoved)
+            if (SnakeBody.Count > 0)
             {
                 for (int i = SnakeBody.Count - 1; i > 0; i--)
                 {
@@ -43,6 +41,8 @@ namespace WPFUI.Models
 
                 SnakeBody[0] = SnakeHead.CloneSnakeHead();
             }
+
+            SnakeHead.Move();
         }
         public void SetNewDirection(Directions newDirection)
         {
@@ -59,7 +59,7 @@ namespace WPFUI.Models
         }
         public void AddNewSnakePart()
         {
-            if(SnakeBody.Count == 0)
+            if (SnakeBody.Count == 0)
             {
                 SnakeBody.Add(new SnakeBodyPart(SnakeHead.XCoordinate - 30, SnakeHead.YCoordinate, Directions.Right));
                 return;
@@ -67,22 +67,48 @@ namespace WPFUI.Models
 
             SnakeBodyPart lastSnakePart = SnakeBody[SnakeBody.Count - 1];
 
-            switch(lastSnakePart.Direction)
+            SnakeBodyPart partToAdd = lastSnakePart;
+
+            switch (lastSnakePart.Direction)
             {
                 case Directions.Left:
-                    SnakeBody.Add(new SnakeBodyPart(lastSnakePart.XCoordinate + 30, lastSnakePart.YCoordinate, lastSnakePart.Direction));
+                    partToAdd = new SnakeBodyPart(lastSnakePart.XCoordinate + 30, lastSnakePart.YCoordinate, lastSnakePart.Direction);
                     break;
                 case Directions.Right:
-                    SnakeBody.Add(new SnakeBodyPart(lastSnakePart.XCoordinate - 30, lastSnakePart.YCoordinate, lastSnakePart.Direction));
+                    partToAdd = new SnakeBodyPart(lastSnakePart.XCoordinate - 30, lastSnakePart.YCoordinate, lastSnakePart.Direction);
                     break;
                 case Directions.Up:
-                    SnakeBody.Add(new SnakeBodyPart(lastSnakePart.XCoordinate, lastSnakePart.YCoordinate - 30, lastSnakePart.Direction));
+                    partToAdd = new SnakeBodyPart(lastSnakePart.XCoordinate, lastSnakePart.YCoordinate - 30, lastSnakePart.Direction);
                     break;
                 case Directions.Down:
-                    SnakeBody.Add(new SnakeBodyPart(lastSnakePart.XCoordinate, lastSnakePart.YCoordinate + 30, lastSnakePart.Direction));
+                    partToAdd = new SnakeBodyPart(lastSnakePart.XCoordinate, lastSnakePart.YCoordinate + 30, lastSnakePart.Direction);
                     break;
             }
 
+            if (!partToAdd.IsInsidePlayGroundBoundaries)
+            {
+                if (lastSnakePart.Direction == Directions.Left || lastSnakePart.Direction == Directions.Right)
+                {
+                    partToAdd = new SnakeBodyPart(lastSnakePart.XCoordinate, lastSnakePart.YCoordinate + 30, Directions.Down);
+
+                    if (!partToAdd.IsInsidePlayGroundBoundaries)
+                    {
+                        partToAdd = new SnakeBodyPart(lastSnakePart.XCoordinate, lastSnakePart.YCoordinate - 30, Directions.Up);
+                    }
+
+                }else
+                {
+                    partToAdd = new SnakeBodyPart(lastSnakePart.XCoordinate - 30, lastSnakePart.YCoordinate, Directions.Right);
+
+                    if (!partToAdd.IsInsidePlayGroundBoundaries)
+                    {
+                        partToAdd = new SnakeBodyPart(lastSnakePart.XCoordinate + 30, lastSnakePart.YCoordinate, Directions.Left);
+                    }
+                }
+            }
+
+            SnakeBody.Add(partToAdd);
         }
+
     }
 }

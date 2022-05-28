@@ -68,7 +68,7 @@ namespace WPFUI.UI
         }
         private void CollisionsCheck()
         {
-            if (_gameSession.Snake.SnakeHead.XCoordinate < 0 || _gameSession.Snake.SnakeHead.XCoordinate > 480 || _gameSession.Snake.SnakeHead.YCoordinate < 0 || _gameSession.Snake.SnakeHead.YCoordinate > 420)
+            if (!_gameSession.Snake.SnakeHead.IsInsidePlayGroundBoundaries)
             {
                 GameOver();
             }else if (_gameSession.Snake.IsHeadTouchingBody())
