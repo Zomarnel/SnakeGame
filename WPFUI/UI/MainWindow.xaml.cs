@@ -5,10 +5,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.ComponentModel;
 using WPFUI.UI.Windows;
 using WPFUI.ViewModels;
 using WPFUI.Models;
-using System.Windows.Media.Effects;
 
 namespace WPFUI.UI
 {
@@ -164,7 +164,7 @@ namespace WPFUI.UI
 
             this.Opacity = 0.5;
 
-            PlayAgainMessage playAgainMessage = new PlayAgainMessage(_gameSession.Score);
+            PlayAgainMessage playAgainMessage = new PlayAgainMessage(_gameSession.Score, _gameSession.GameSettings);
             playAgainMessage.Owner = this;
             playAgainMessage.ShowDialog();
 
@@ -175,6 +175,10 @@ namespace WPFUI.UI
             this.Opacity = 1;
 
             StartTimers();
+        }
+        private void MainWindow_OnClosing(object sender, CancelEventArgs e)
+        {
+            _gameSession.SaveSession();
         }
     }
 }

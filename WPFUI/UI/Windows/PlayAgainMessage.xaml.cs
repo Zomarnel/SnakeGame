@@ -1,29 +1,28 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Interop;
+using System.ComponentModel;
+using WPFUI.Models;
+using WPFUI.Services;
 
 namespace WPFUI.UI.Windows
 {
     public partial class PlayAgainMessage : Window
     {
-        [DllImport("user32.dll")]
-        static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
-
-        [DllImport("user32.dll")]
-        static extern bool EnableMenuItem(IntPtr hMenu, uint uIDEnableItem, uint uEnable);
-
-        const uint MF_BYCOMMAND = 0x00000000;
-        const uint MF_GRAYED = 0x00000001;
-
-        const uint SC_CLOSE = 0xF060; 
-
-        public PlayAgainMessage(int playerScore)
+        private GameDetails _gameSettings;
+        public PlayAgainMessage(int playerScore, GameDetails gameSettings)
         {
             InitializeComponent();
 
+            _gameSettings = gameSettings;
+
             ScoreLabel.Content = playerScore.ToString();
+
+            if(_gameSettings.Record < playerScore)
+            {
+                _gameSettings.Record = playerScore;
+            }
+
+            RecordLabel.Content = _gameSettings.Record.ToString();   
         }
         private void OnClick_StartNewGame(object sender, RoutedEventArgs e)
         {
@@ -37,18 +36,9 @@ namespace WPFUI.UI.Windows
         {
             Cursor = Cursors.Arrow;
         }
-
-        protected override void OnSourceInitialized(EventArgs e)
+        private void PlayAgainWindow_OnClosing(object sender, CancelEventArgs e)
         {
-            base.OnSourceInitialized(e);
-
-            //This will disable the close button
-            IntPtr hwnd = new WindowInteropHelper(this).Handle;
-            IntPtr hMenu = GetSystemMenu(hwnd, false);
-            if (hMenu != IntPtr.Zero)
-            {
-                EnableMenuItem(hMenu, SC_CLOSE, MF_BYCOMMAND | MF_GRAYED);
-            }
+            SavingService.Save(_gameSettings);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace WPFUI.ViewModels
         public event EventHandler<Canvas> OnRaisedDrawSnake;
 
         public event PropertyChangedEventHandler PropertyChanged;   
+        public GameDetails GameSettings { get; set; }
 
         public int StartingPositionX = 90;
         public int StartingPositionY = 210;
@@ -27,6 +28,8 @@ namespace WPFUI.ViewModels
             OnRaisedDrawSnake += Snake.Draw;
 
             CurrentFruits = FruitsControl.ReturnNewListOfFruits();
+
+            GameSettings = SavingService.LoadGameSettingsOrCreateNew();
         }
         public void DrawSnake(Canvas canvas)
         {
@@ -46,6 +49,10 @@ namespace WPFUI.ViewModels
         public void CheckForFruitCollisionWithSnake()
         {
             Score += FruitsControl.CheckForFruitCollision(Snake, CurrentFruits);
+        }
+        public void SaveSession()
+        {
+            SavingService.Save(GameSettings);
         }
     }
 }

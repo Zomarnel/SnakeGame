@@ -7,6 +7,7 @@
         d:DataContext="{d:DesignInstance viewModels:GameSession}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
+        Closing="MainWindow_OnClosing"
         ResizeMode="NoResize"
         Title="Snakegame" Height="627" Width="584"
         KeyDown="OnKeyDown" Icon="/Images/Snakegame.ico"

@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "mGQLH4wIQop/pd0ijTTxpzERYvTaUYhuCP+vxjh+V/sKn7psQKHRFI2iSb4c4guzCdRgca1fTUwQzXCixJHThQ==",
+  "dgSpecHash": "b9rzP7Wu0PEVFcctwxvVdhJTnLqLCI2FrBL9wB/anbSo/MjelS+19JwO5gG1hRK21wwx5zoFUaEged+JnMx3hg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Bouazza\\Desktop\\C#Projects\\SnakeGame\\WPFUI\\WPFUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bouazza\\.nuget\\packages\\fody\\6.6.2\\fody.6.6.2.nupkg.sha512",
+    "C:\\Users\\Bouazza\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Bouazza\\.nuget\\packages\\propertychanged.fody\\3.4.1\\propertychanged.fody.3.4.1.nupkg.sha512"
   ],
   "logs": []

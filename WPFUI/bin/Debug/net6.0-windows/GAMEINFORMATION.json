@@ -1,0 +1,11 @@
+{
+  "Record": 26,
+  "PlayGroundWidth": 470,
+  "PlayGroundHeight": 420,
+  "NumberOfFruitsOnGrid": 1,
+  "FruitImageName": "apple",
+  "SnakeColour": "blue",
+  "SnakeSpeed": "normal",
+  "PlayGroundTheme": "sunny",
+  "PlayMode": "vanilla"
+}
