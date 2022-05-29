@@ -20,7 +20,7 @@ namespace WPFUI.Models
                 AddNewSnakePart();
             }
         }
-        internal void Draw(object sender, Canvas canvas)
+        public void Draw(object sender, Canvas canvas)
         {
             SnakeHead.DrawPartOnCanvas(canvas);
             
@@ -31,7 +31,6 @@ namespace WPFUI.Models
         }
         public void Move()
         {
-
             if (SnakeBody.Count > 0)
             {
                 for (int i = SnakeBody.Count - 1; i > 0; i--)
@@ -96,7 +95,8 @@ namespace WPFUI.Models
                         partToAdd = new SnakeBodyPart(lastSnakePart.XCoordinate, lastSnakePart.YCoordinate - 30, Directions.Up);
                     }
 
-                }else
+                }
+                else
                 {
                     partToAdd = new SnakeBodyPart(lastSnakePart.XCoordinate - 30, lastSnakePart.YCoordinate, Directions.Right);
 
@@ -109,6 +109,5 @@ namespace WPFUI.Models
 
             SnakeBody.Add(partToAdd);
         }
-
     }
 }
