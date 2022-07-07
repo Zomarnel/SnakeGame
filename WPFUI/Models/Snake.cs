@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
+using WPFUI.Services;
 
 namespace WPFUI.Models
 {
@@ -15,19 +16,22 @@ namespace WPFUI.Models
 
             SnakeBody = new List<SnakeBodyPart>();
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 3; i++)
             {
                 AddNewSnakePart();
             }
         }
         public void Draw(object sender, Canvas canvas)
         {
-            SnakeHead.DrawPartOnCanvas(canvas);
+            DrawingService s = new DrawingService(canvas);
+
+            s.DrawSnake(this);
             
-            foreach(SnakeBodyPart snakeBodyPart in SnakeBody)
+            /*foreach(SnakeBodyPart snakeBodyPart in SnakeBody)
             {
                 snakeBodyPart.DrawPartOnCanvas(canvas);
-            }
+            }*/
+
         }
         public void Move()
         {

@@ -21,7 +21,7 @@ namespace WPFUI.UI
         private DispatcherTimer _updateTimer = new DispatcherTimer();
         private DispatcherTimer _moveSnakeTimer = new DispatcherTimer(); 
 
-        private int _updateInterval = 1;
+        private double _updateInterval = 1;
         private int _moveSnakeInterval = 100;
         public MainWindow()
         {
@@ -35,22 +35,21 @@ namespace WPFUI.UI
         #region SnakeMovement
         private void OnKeyDown(object sender, KeyEventArgs e)
         {
-
             if (!_hasCarriedOutMovement)
             {
                 if (e.Key == Key.Left && _gameSession.Snake.SnakeDirection != Directions.Right && _gameSession.Snake.SnakeDirection != Directions.StartingPosition)
                 {
                     _gameSession.Snake.SetNewDirection(Directions.Left);
                 }
-                if (e.Key == Key.Right && _gameSession.Snake.SnakeDirection != Directions.Left)
+                else if (e.Key == Key.Right && _gameSession.Snake.SnakeDirection != Directions.Left)
                 {
                     _gameSession.Snake.SetNewDirection(Directions.Right);
                 }
-                if (e.Key == Key.Down && _gameSession.Snake.SnakeDirection != Directions.Up)
+                else if (e.Key == Key.Down && _gameSession.Snake.SnakeDirection != Directions.Up)
                 {
                     _gameSession.Snake.SetNewDirection(Directions.Down);
                 }
-                if (e.Key == Key.Up && _gameSession.Snake.SnakeDirection != Directions.Down)
+                else if (e.Key == Key.Up && _gameSession.Snake.SnakeDirection != Directions.Down)
                 {
                     _gameSession.Snake.SetNewDirection(Directions.Up);
                 }
@@ -60,6 +59,7 @@ namespace WPFUI.UI
         }
         private void MoveSnake(object sender, EventArgs e)
         {
+
             _gameSession.MoveSnake();
 
             CollisionsCheck();
@@ -93,6 +93,7 @@ namespace WPFUI.UI
         #region Initialization
         private void InitializeTimers()
         {
+
             _updateTimer.Interval = TimeSpan.FromMilliseconds(_updateInterval);
             _updateTimer.Tick += UpdateGame;
             

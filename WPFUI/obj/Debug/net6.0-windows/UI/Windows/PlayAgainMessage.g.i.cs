@@ -68,7 +68,7 @@ namespace WPFUI.UI.Windows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WPFUI;component/ui/windows/playagainmessage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WPFUI;V1.0.0.0;component/ui/windows/playagainmessage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\UI\Windows\PlayAgainMessage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
