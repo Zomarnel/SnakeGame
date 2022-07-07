@@ -64,6 +64,12 @@ namespace WPFUI.UI
 
             CollisionsCheck();
 
+            CanvasPlayGround.Children.Clear();
+
+            _gameSession.DrawSnake(CanvasPlayGround);
+
+            _gameSession.DrawFruitsOnPlayGround(CanvasPlayGround);
+
             _hasCarriedOutMovement = false;
         }
         private void CollisionsCheck()
@@ -81,10 +87,6 @@ namespace WPFUI.UI
         }
         private void UpdateGame(object sender, EventArgs e)
         {
-            CanvasPlayGround.Children.Clear();
-
-            _gameSession.DrawSnake(CanvasPlayGround);
-
             _gameSession.DrawFruitsOnPlayGround(CanvasPlayGround);
         }
 
