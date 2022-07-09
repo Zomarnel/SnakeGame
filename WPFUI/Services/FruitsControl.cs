@@ -9,20 +9,21 @@ namespace WPFUI.Services
 {
     public class FruitsControl
     {
-        public List<Fruit> ReturnNewListOfFruits()
+        private List<Fruit> _currentFruits;
+        public FruitsControl()
         {
-            return new List<Fruit>()
+            _currentFruits = new List<Fruit>()
             {
                 new Fruit("apple", 330, 210)
             };
         }
-        public int CheckForFruitCollision(Snake snake, List<Fruit> fruits)
+        public int CheckForFruitCollision(Snake snake)
         {
             List<Fruit> fruitsToRemove = new List<Fruit>();
 
             int score = 0;
 
-            foreach(Fruit fruit in fruits)
+            foreach(Fruit fruit in _currentFruits)
             {
                 if(fruit.XCoordinate == snake.SnakeHead.XCoordinate && fruit.YCoordinate == snake.SnakeHead.YCoordinate)
                 {
@@ -32,13 +33,13 @@ namespace WPFUI.Services
                 }
             }
 
-            RemoveFruitsFromList(fruits, fruitsToRemove, snake);
+            RemoveFruitsFromCurrentFruits(fruitsToRemove, snake);
 
             return score;
         }
-        public void DisplayCurrentFruits(Canvas playGround, List<Fruit> fruits)
+        public void DisplayCurrentFruits(Canvas playGround)
         {
-            foreach(Fruit fruit in fruits)
+            foreach(Fruit fruit in _currentFruits)
             {
                 Image fruitImage = new Image();
                 fruitImage.Width = 30;
@@ -57,7 +58,7 @@ namespace WPFUI.Services
                 Canvas.SetBottom(fruitImage, fruit.YCoordinate);
             }
         }
-        private void RemoveFruitsFromList(List<Fruit> fruits, List<Fruit> fruitsToRemove, Snake snake)
+        private void RemoveFruitsFromCurrentFruits(List<Fruit> fruitsToRemove, Snake snake)
         {
             Random random = new Random();
 
@@ -73,7 +74,7 @@ namespace WPFUI.Services
                     xCoordinate = random.Next(0, 17) * 30;
                     yCoordinate = random.Next(0, 15) * 30;
 
-                    if (!fruits.Any(f => f.XCoordinate == xCoordinate && f.YCoordinate == yCoordinate)
+                    if (!_currentFruits.Any(f => f.XCoordinate == xCoordinate && f.YCoordinate == yCoordinate)
                         && !(snake.SnakeHead.XCoordinate == xCoordinate && snake.SnakeHead.YCoordinate == yCoordinate)
                         && !snake.SnakeBody.Any(s => s.XCoordinate == xCoordinate && s.YCoordinate == yCoordinate))
                     {
@@ -81,8 +82,8 @@ namespace WPFUI.Services
                     }
                 }
 
-                fruits.Remove(fruit);
-                fruits.Add(new Fruit(fruit.ImageName, xCoordinate, yCoordinate));
+                _currentFruits.Remove(fruit);
+                _currentFruits.Add(new Fruit(fruit.ImageName, xCoordinate, yCoordinate));
             }
         }
     }

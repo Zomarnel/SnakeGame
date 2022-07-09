@@ -87,17 +87,7 @@ namespace WPFUI.UI
         }
         private void SpeedGame(object sender, EventArgs e)
         {
-            Image fruitImage = new Image();
-
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.UriSource = new Uri($"/Images/Fruits/apple.png", UriKind.Relative);
-
-            fruitImage.Source = bitmap;
-
-            fruitImage.Visibility = Visibility.Hidden;
-
-            CanvasPlayGround.Children.Add(fruitImage);
-
+            _gameSession.DrawFruitsOnPlayGround(CanvasPlayGround);
         }
 
         #endregion SnakeMovement
@@ -177,7 +167,7 @@ namespace WPFUI.UI
 
             this.Opacity = 0.5;
 
-            PlayAgainMessage playAgainMessage = new PlayAgainMessage(_gameSession.Score, _gameSession.GameSettings);
+            PlayAgainMessage playAgainMessage = new PlayAgainMessage(_gameSession.CurrentScore, _gameSession.GameSettings);
             playAgainMessage.Owner = this;
             playAgainMessage.ShowDialog();
 

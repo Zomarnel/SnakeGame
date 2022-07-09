@@ -1,10 +1,6 @@
-﻿using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Shapes;
-
-namespace WPFUI.Models
+﻿namespace WPFUI.Models
 {
-    public abstract class SnakePart
+    public class SnakePart
     {
         public int XCoordinate { get; set; }
         public int YCoordinate { get; set; }
@@ -17,18 +13,9 @@ namespace WPFUI.Models
 
             Direction = direction;
         }
-        public void DrawPartOnCanvas(Canvas canvas)
+        public SnakeBodyPart ClonePartAsBody()
         {
-            Rectangle rectangle = new Rectangle()
-            {
-                Width = 30,
-                Height = 30,
-                Fill = Brushes.Red,
-            };
-
-            canvas.Children.Add(rectangle);
-            Canvas.SetLeft(rectangle, XCoordinate);
-            Canvas.SetBottom(rectangle, YCoordinate);
+            return new SnakeBodyPart(XCoordinate, YCoordinate, Direction);  
         }
         private bool CheckIfInsideBoundaries()
         {

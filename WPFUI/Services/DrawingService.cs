@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows;
-using System.Linq;
 using WPFUI.Models;
 
 namespace WPFUI.Services
@@ -20,7 +19,6 @@ namespace WPFUI.Services
 
         private  int SPRITEWIDTH = 64;
         private  int SPRITEHEIGHT = 64;
-
         public DrawingService(Canvas canvas)
         {
             _canvas = canvas;
@@ -53,16 +51,23 @@ namespace WPFUI.Services
         }
         public void DrawSnake(Snake snake)
         {
-            SnakeHead snakeHead = snake.SnakeHead;
-            SnakeBodyPart snakeTail = snake.SnakeBody[snake.SnakeBody.Count - 1];
 
-            List<SnakeBodyPart> snakeBody = snake.SnakeBody.Where(sb => snake.SnakeBody.IndexOf(sb) != snake.SnakeBody.Count - 1).ToList();
-
-            DrawSnakeHead(snakeHead);
-            DrawSnakeTail(snakeTail);
-            DrawSnakeBody(snakeBody, snakeHead, snakeTail);
+            if (snake.SnakeBody.Count == 0)
+            {
+                DrawSnakeHead(snake.SnakeHead);
+            }
+            else if (snake.SnakeBody.Count == 1)
+            {
+                DrawSnakeHead(snake.SnakeHead);
+                DrawSnakeTail(snake.SnakeBody[snake.SnakeBody.Count - 1]);
+            }
+            else
+            {
+                DrawSnakeHead(snake.SnakeHead);
+                DrawSnakeTail(snake.SnakeBody[snake.SnakeBody.Count - 1]);
+                DrawSnakeBody(snake.SnakeBody, snake.SnakeHead, snake.SnakeBody[snake.SnakeBody.Count - 1]);
+            }
         }
-
         private void DrawSnakeHead(SnakeHead head)
         {
             Image image = new Image()
@@ -95,35 +100,25 @@ namespace WPFUI.Services
         }
         private void DrawSnakeBody(List<SnakeBodyPart> body, SnakeHead head, SnakeBodyPart tail)
         {
-            for(int i = 0; i < body.Count; i++)
+            for(int i = 0; i < body.Count-1; i++)
             {
-                if(i == 0)
-                {
-                    DrawSnakeBodyPart(body[1], body[0], head);
-                    continue;
-                }
-
-                if (i == body.Count-1)
-                {
-                    DrawSnakeBodyPart(tail, body[i], body[i-1]);
-                    break;
-                }
-
-                DrawSnakeBodyPart(body[i+1], body[i], body[i-1]);
+                DrawSnakeBodyPart(body[i+1], body[i]);
             }
         }
-
-        private void DrawSnakeBodyPart(SnakePart backPart, SnakePart centerPart, SnakePart frontPart)
+        private void DrawSnakeBodyPart(SnakePart backPart, SnakePart centerPart)
         {
             string keySpriteSheet = "";
 
-            if(centerPart.Direction == Directions.Up)
+            int xDifference = centerPart.XCoordinate - backPart.XCoordinate;
+            int yDifference = centerPart.YCoordinate - backPart.YCoordinate;
+
+            if (centerPart.Direction == Directions.Up)
             {
-                if(centerPart.XCoordinate - backPart.XCoordinate == -30)
+                if(xDifference == -30)
                 {
                     keySpriteSheet = "BottomLeft";
                 }
-                else if(centerPart.XCoordinate - backPart.XCoordinate == 30)
+                else if(xDifference == 30)
                 {
                     keySpriteSheet = "BottomRight";
                 }
@@ -135,11 +130,11 @@ namespace WPFUI.Services
 
             if (centerPart.Direction == Directions.Down)
             {
-                if (centerPart.XCoordinate - backPart.XCoordinate == -30)
+                if (xDifference == -30)
                 {
                     keySpriteSheet = "TopLeft";
                 }
-                else if (centerPart.XCoordinate - backPart.XCoordinate == 30)
+                else if (xDifference == 30)
                 {
                     keySpriteSheet = "TopRight";
                 }
@@ -151,11 +146,11 @@ namespace WPFUI.Services
 
             if (centerPart.Direction == Directions.Left)
             {
-                if (centerPart.YCoordinate - backPart.YCoordinate == -30)
+                if (yDifference == -30)
                 {
                     keySpriteSheet = "BottomRight";
                 }
-                else if (centerPart.YCoordinate - backPart.YCoordinate == 30)
+                else if (yDifference == 30)
                 {
                     keySpriteSheet = "TopRight";
                 }
@@ -167,11 +162,11 @@ namespace WPFUI.Services
 
             if (centerPart.Direction == Directions.Right)
             {
-                if (centerPart.YCoordinate - backPart.YCoordinate == -30)
+                if (yDifference == -30)
                 {
                     keySpriteSheet = "BottomLeft";
                 }
-                else if (centerPart.YCoordinate - backPart.YCoordinate == 30)
+                else if (yDifference == 30)
                 {
                     keySpriteSheet = "TopLeft";
                 }

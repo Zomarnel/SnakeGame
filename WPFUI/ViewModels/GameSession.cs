@@ -1,8 +1,6 @@
 ﻿using WPFUI.Models;
 using WPFUI.Services;
 using System.Windows.Controls;
-using System.Collections.Generic;
-using System;
 using System.ComponentModel;
 
 namespace WPFUI.ViewModels
@@ -11,29 +9,24 @@ namespace WPFUI.ViewModels
     {
         public Snake Snake { get; set; }
 
-        public event EventHandler<Canvas> OnRaisedDrawSnake;
-
         public event PropertyChangedEventHandler PropertyChanged;   
         public GameDetails GameSettings { get; set; }
 
         public int StartingPositionX = 90;
         public int StartingPositionY = 210;
-        public int Score { get; set; } = 0;
-        public FruitsControl FruitsControl { get; set; } = new FruitsControl();
-        private List<Fruit> CurrentFruits { get; init; }
-
+        public int CurrentScore { get; set; } = 0;
+        private FruitsControl FruitsControl { get; set; } = new FruitsControl();
         public GameSession()
         {
             Snake = new Snake(StartingPositionX, StartingPositionY);
-            OnRaisedDrawSnake += Snake.Draw;
-
-            CurrentFruits = FruitsControl.ReturnNewListOfFruits();
 
             GameSettings = SavingService.LoadGameSettingsOrCreateNew();
         }
         public void DrawSnake(Canvas canvas)
         {
-            OnRaisedDrawSnake?.Invoke(this, canvas);
+            DrawingService ds = new DrawingService(canvas);
+
+            ds.DrawSnake(Snake);
         }
         public void MoveSnake()
         {
@@ -44,11 +37,11 @@ namespace WPFUI.ViewModels
         }
         public void DrawFruitsOnPlayGround(Canvas playGround)
         {
-            FruitsControl.DisplayCurrentFruits(playGround, CurrentFruits);
+            FruitsControl.DisplayCurrentFruits(playGround);
         }
         public void CheckForFruitCollisionWithSnake()
         {
-            Score += FruitsControl.CheckForFruitCollision(Snake, CurrentFruits);
+            CurrentScore += FruitsControl.CheckForFruitCollision(Snake);
         }
         public void SaveSession()
         {

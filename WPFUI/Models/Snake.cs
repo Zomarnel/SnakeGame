@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Controls;
-using WPFUI.Services;
 
 namespace WPFUI.Models
 {
@@ -16,22 +14,10 @@ namespace WPFUI.Models
 
             SnakeBody = new List<SnakeBodyPart>();
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 0; i++)
             {
                 AddNewSnakePart();
             }
-        }
-        public void Draw(object sender, Canvas canvas)
-        {
-            DrawingService s = new DrawingService(canvas);
-
-            s.DrawSnake(this);
-            
-            /*foreach(SnakeBodyPart snakeBodyPart in SnakeBody)
-            {
-                snakeBodyPart.DrawPartOnCanvas(canvas);
-            }*/
-
         }
         public void Move()
         {
@@ -39,10 +25,10 @@ namespace WPFUI.Models
             {
                 for (int i = SnakeBody.Count - 1; i > 0; i--)
                 {
-                    SnakeBody[i] = SnakeBody[i - 1].CloneBodyPart();
+                    SnakeBody[i] = SnakeBody[i - 1].ClonePartAsBody();
                 }
 
-                SnakeBody[0] = SnakeHead.CloneSnakeHead();
+                SnakeBody[0] = SnakeHead.ClonePartAsBody();
             }
 
             SnakeHead.Move();
@@ -50,15 +36,6 @@ namespace WPFUI.Models
         public void SetNewDirection(Directions newDirection)
         {
             SnakeHead.Direction = newDirection;
-        }
-        public bool IsHeadTouchingBody()
-        {
-            if(SnakeBody.Any(sb => sb.XCoordinate == SnakeHead.XCoordinate && sb.YCoordinate == SnakeHead.YCoordinate))
-            {
-                return true;
-            }
-
-            return false;
         }
         public void AddNewSnakePart()
         {
@@ -70,7 +47,7 @@ namespace WPFUI.Models
 
             SnakeBodyPart lastSnakePart = SnakeBody[SnakeBody.Count - 1];
 
-            SnakeBodyPart partToAdd = lastSnakePart;
+            SnakeBodyPart partToAdd;
 
             switch (lastSnakePart.Direction)
             {
@@ -86,6 +63,8 @@ namespace WPFUI.Models
                 case Directions.Down:
                     partToAdd = new SnakeBodyPart(lastSnakePart.XCoordinate, lastSnakePart.YCoordinate + 30, lastSnakePart.Direction);
                     break;
+                default:
+                    throw new System.Exception();
             }
 
             if (!partToAdd.IsInsidePlayGroundBoundaries)
@@ -98,7 +77,6 @@ namespace WPFUI.Models
                     {
                         partToAdd = new SnakeBodyPart(lastSnakePart.XCoordinate, lastSnakePart.YCoordinate - 30, Directions.Up);
                     }
-
                 }
                 else
                 {
@@ -112,6 +90,15 @@ namespace WPFUI.Models
             }
 
             SnakeBody.Add(partToAdd);
+        }
+        public bool IsHeadTouchingBody()
+        {
+            if(SnakeBody.Any(sb => sb.XCoordinate == SnakeHead.XCoordinate && sb.YCoordinate == SnakeHead.YCoordinate))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

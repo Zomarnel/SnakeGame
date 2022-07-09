@@ -24,9 +24,5 @@
                 YCoordinate += 30;
             }
         }
-        public SnakeBodyPart CloneSnakeHead()
-        {
-            return new SnakeBodyPart(XCoordinate, YCoordinate, Direction);
-        }
     }
 }
