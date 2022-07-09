@@ -9,6 +9,7 @@ using System.ComponentModel;
 using WPFUI.UI.Windows;
 using WPFUI.ViewModels;
 using WPFUI.Models;
+using System.Windows.Media.Imaging;
 
 namespace WPFUI.UI
 {
@@ -18,10 +19,10 @@ namespace WPFUI.UI
 
         private bool _hasCarriedOutMovement = false;
 
-        private DispatcherTimer _updateTimer = new DispatcherTimer();
+        private DispatcherTimer _speedGameTimer = new DispatcherTimer();
         private DispatcherTimer _moveSnakeTimer = new DispatcherTimer(); 
 
-        private double _updateInterval = 1;
+        private double _speedGameInterval = 1;
         private int _moveSnakeInterval = 100;
         public MainWindow()
         {
@@ -59,7 +60,6 @@ namespace WPFUI.UI
         }
         private void MoveSnake(object sender, EventArgs e)
         {
-
             _gameSession.MoveSnake();
 
             CollisionsCheck();
@@ -85,9 +85,19 @@ namespace WPFUI.UI
                 _gameSession.CheckForFruitCollisionWithSnake();
             }
         }
-        private void UpdateGame(object sender, EventArgs e)
+        private void SpeedGame(object sender, EventArgs e)
         {
-            _gameSession.DrawFruitsOnPlayGround(CanvasPlayGround);
+            Image fruitImage = new Image();
+
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.UriSource = new Uri($"/Images/Fruits/apple.png", UriKind.Relative);
+
+            fruitImage.Source = bitmap;
+
+            fruitImage.Visibility = Visibility.Hidden;
+
+            CanvasPlayGround.Children.Add(fruitImage);
+
         }
 
         #endregion SnakeMovement
@@ -96,8 +106,8 @@ namespace WPFUI.UI
         private void InitializeTimers()
         {
 
-            _updateTimer.Interval = TimeSpan.FromMilliseconds(_updateInterval);
-            _updateTimer.Tick += UpdateGame;
+            _speedGameTimer.Interval = TimeSpan.FromMilliseconds(_speedGameInterval);
+            _speedGameTimer.Tick += SpeedGame;
             
             _moveSnakeTimer.Interval = TimeSpan.FromMilliseconds(_moveSnakeInterval);
             _moveSnakeTimer.Tick += MoveSnake;
@@ -151,12 +161,12 @@ namespace WPFUI.UI
         #region Timers
         private void StopTimers()
         {
-            _updateTimer.Stop();
+            _speedGameTimer.Stop();
             _moveSnakeTimer.Stop();
         }
         private void StartTimers()
         {
-            _updateTimer.Start();
+            _speedGameTimer.Start();
             _moveSnakeTimer.Start();
         }
 
