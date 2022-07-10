@@ -9,7 +9,6 @@ using System.ComponentModel;
 using WPFUI.UI.Windows;
 using WPFUI.ViewModels;
 using WPFUI.Models;
-using System.Windows.Media.Imaging;
 
 namespace WPFUI.UI
 {
@@ -22,7 +21,7 @@ namespace WPFUI.UI
         private DispatcherTimer _speedGameTimer = new DispatcherTimer();
         private DispatcherTimer _moveSnakeTimer = new DispatcherTimer(); 
 
-        private double _speedGameInterval = 1;
+        private int _speedGameInterval = 1;
         private int _moveSnakeInterval = 100;
         public MainWindow()
         {

@@ -51,7 +51,6 @@ namespace WPFUI.Services
         }
         public void DrawSnake(Snake snake)
         {
-
             if (snake.SnakeBody.Count == 0)
             {
                 DrawSnakeHead(snake.SnakeHead);
