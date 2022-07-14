@@ -23,13 +23,14 @@ namespace WPFUI.UI
 
         private int _speedGameInterval = 1;
         private int _moveSnakeInterval = 100;
+
         public MainWindow()
         {
             InitializeComponent();
             InitializeTimers();
             CreatePlayGroundGrid();
 
-            DataContext = _gameSession; 
+            DataContext = _gameSession;
         }
 
         #region SnakeMovement

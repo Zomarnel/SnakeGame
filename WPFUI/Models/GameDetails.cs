@@ -1,7 +1,10 @@
-﻿namespace WPFUI.Models
+﻿using System.ComponentModel;
+
+namespace WPFUI.Models
 {
-    public class GameDetails
+    public class GameDetails : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;   
         public int Record { get; set; }
         public int PlayGroundWidth { get; set; }
         public int PlayGroundHeight { get; set; }

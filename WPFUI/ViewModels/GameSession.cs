@@ -14,7 +14,22 @@ namespace WPFUI.ViewModels
 
         public int StartingPositionX = 90;
         public int StartingPositionY = 210;
-        public int CurrentScore { get; set; } = 0;
+
+        private int _currentScore = 0;
+        public int CurrentScore
+        {
+            get => _currentScore;
+
+            set
+            {
+                _currentScore = value;
+
+                if(_currentScore > GameSettings.Record)
+                {
+                    GameSettings.Record = _currentScore;
+                }
+            }
+        }
         private FruitsControl FruitsControl { get; set; } = new FruitsControl();
         public GameSession()
         {

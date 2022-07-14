@@ -20,13 +20,15 @@
         <Canvas Canvas.Left="0" Canvas.Bottom="510" Width="570" Height="80" Background="#4a752c">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
 
-                <Image Grid.Column="0" Margin="0, 20, 15, 0" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Images/Fruits/apple.png" Width="40" Height="40"/>
-                <Label Grid.Column="0" Margin="0, 20, 12, 0" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Content="{Binding CurrentScore}" Foreground="White" FontSize="17pt"/>
+                <Image Grid.Column="0" Margin="30, 20, 15, 0" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/Images/Fruits/apple.png" Width="40" Height="40"/>
+                <Label Grid.Column="0" Margin="40, 20, 12, 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding CurrentScore}" Foreground="White" FontSize="17pt"/>
+
+                <Image Grid.Column="1" Margin="30, 20, 15, 0" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/Images/Helpers/trophy.png" Width="40" Height="40"/>
+                <Label Grid.Column="1" Margin="40, 20, 12, 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding GameSettings.Record}" Foreground="White" FontSize="17pt"/>
             </Grid>
         </Canvas>
     </Canvas>
