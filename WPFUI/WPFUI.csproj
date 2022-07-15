@@ -13,6 +13,7 @@
     <None Remove="Images\Options_Gear.png" />
     <None Remove="Images\PlayAgain.png" />
     <None Remove="Images\Snake\GreenSnake.png" />
+    <None Remove="Images\Snake\RedSnake.png" />
     <None Remove="UI\Snakegame.ico" />
   </ItemGroup>
 
@@ -42,6 +43,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Snake\GreenSnake.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Snake\RedSnake.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
