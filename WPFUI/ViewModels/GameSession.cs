@@ -30,16 +30,18 @@ namespace WPFUI.ViewModels
                 }
             }
         }
-        private FruitsControl FruitsControl { get; set; } = new FruitsControl();
+        private FruitsControl FruitsControl { get; set; } 
         public GameSession()
         {
             Snake = new Snake(StartingPositionX, StartingPositionY);
 
             GameSettings = SavingService.LoadGameSettingsOrCreateNew();
+
+            FruitsControl = new FruitsControl(GameSettings.GameMode.NumberOfFruitsOnGrid, GameSettings.GameMode.FruitType, Snake);
         }
         public void DrawSnake(Canvas canvas)
         {
-            DrawingService ds = new DrawingService(canvas);
+            DrawingService ds = new DrawingService(canvas, GameSettings.GameMode.SnakeColour);
 
             ds.DrawSnake(Snake);
         }

@@ -17,25 +17,29 @@ namespace WPFUI.Services
         {
             if(!File.Exists(SAVE_GAME_FILE_NAME))
             {
-                return new GameDetails();
+                return new GameDetails(0, GameModeService.ReturnClassicGameMode());
             }
 
-            try
-            {
-                JObject data = JObject.Parse(File.ReadAllText(SAVE_GAME_FILE_NAME));
+            JObject data = JObject.Parse(File.ReadAllText(SAVE_GAME_FILE_NAME));
 
-                return CreateGameDetails(data);
-            }catch
-            {
-                throw new System.Exception("Is this ok?");
-            }
+            return CreateGameDetails(data);
+
         }
         private static GameDetails CreateGameDetails(JObject data)
         {
-            return new GameDetails((int)data[nameof(GameDetails.Record)], (int)data[nameof(GameDetails.PlayGroundWidth)], (int)data[nameof(GameDetails.PlayGroundHeight)],
-                                   (int)data[nameof(GameDetails.NumberOfFruitsOnGrid)], (string)data[nameof(GameDetails.FruitImageName)], (string)data[nameof(GameDetails.SnakeColour)],
-                                   (string)data[nameof(GameDetails.SnakeSpeed)], (string)data[nameof(GameDetails.PlayGroundTheme)], (string)data[nameof(GameDetails.PlayMode)]);
+            return new GameDetails((int)data[nameof(GameDetails.Record)], CreateGameMode(data));
+        }
 
+        private static GameMode CreateGameMode(JObject data)
+        {
+            return new GameMode()
+            {
+                NumberOfFruitsOnGrid = (int)data[nameof(GameDetails.GameMode)][nameof(GameMode.NumberOfFruitsOnGrid)],
+                FruitType = (string)data[nameof(GameDetails.GameMode)][nameof(GameMode.FruitType)],
+                PlayMode = (string)data[nameof(GameDetails.GameMode)][nameof(GameMode.PlayMode)],
+                SnakeColour = (string)data[nameof(GameDetails.GameMode)][nameof(GameMode.SnakeColour)],
+                SnakeSpeed = (string)data[nameof(GameDetails.GameMode)][nameof(GameMode.SnakeSpeed)]
+            };
         }
     }
 }

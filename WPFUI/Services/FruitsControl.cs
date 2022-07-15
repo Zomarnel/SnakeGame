@@ -9,13 +9,10 @@ namespace WPFUI.Services
 {
     public class FruitsControl
     {
-        private List<Fruit> _currentFruits;
-        public FruitsControl()
+        private List<Fruit> _currentFruits = new List<Fruit>();
+        public FruitsControl(int numberOfFruits, string fruitImage, Snake snake)
         {
-            _currentFruits = new List<Fruit>()
-            {
-                new Fruit("apple", 330, 210)
-            };
+            InitializeCurrentFruits(numberOfFruits, fruitImage, snake);
         }
         public int CheckForFruitCollision(Snake snake)
         {
@@ -58,6 +55,34 @@ namespace WPFUI.Services
                 Canvas.SetBottom(fruitImage, fruit.YCoordinate);
             }
         }
+        private void InitializeCurrentFruits(int num, string fruitImage, Snake snake)
+        {
+            Random random = new Random();
+
+            int xCoordinate = 0;
+            int yCoordinate = 0;
+
+            bool coordinatesChosen = false;
+
+            for (int i = 0; i < num; i++)
+            {
+                while(!coordinatesChosen)
+                {
+                    xCoordinate = random.Next(0, 17) * 30;
+                    yCoordinate = random.Next(0, 15) * 30;
+
+                    if (!_currentFruits.Any(f => f.XCoordinate == xCoordinate && f.YCoordinate == yCoordinate)
+                        && !(snake.SnakeHead.XCoordinate == xCoordinate && snake.SnakeHead.YCoordinate == yCoordinate)
+                        && !snake.SnakeBody.Any(s => s.XCoordinate == xCoordinate && s.YCoordinate == yCoordinate))
+                    {
+                        coordinatesChosen = true;
+                    }
+                }
+
+                _currentFruits.Add(new Fruit(fruitImage, xCoordinate, yCoordinate));
+                coordinatesChosen = false;
+            }
+        }
         private void RemoveFruitsFromCurrentFruits(List<Fruit> fruitsToRemove, Snake snake)
         {
             Random random = new Random();
@@ -84,6 +109,8 @@ namespace WPFUI.Services
 
                 _currentFruits.Remove(fruit);
                 _currentFruits.Add(new Fruit(fruit.ImageName, xCoordinate, yCoordinate));
+
+                haveCoordinatesBeenChosen = false;
             }
         }
     }

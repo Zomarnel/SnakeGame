@@ -27,6 +27,7 @@ namespace WPFUI.UI
         public MainWindow()
         {
             InitializeComponent();
+            ImplementGameMode();
             InitializeTimers();
             CreatePlayGroundGrid();
 
@@ -177,11 +178,33 @@ namespace WPFUI.UI
 
             this.Opacity = 1;
 
+            ImplementGameMode();
+
+            _moveSnakeTimer.Interval = TimeSpan.FromMilliseconds(_moveSnakeInterval);
             StartTimers();
         }
         private void MainWindow_OnClosing(object sender, CancelEventArgs e)
         {
             _gameSession.SaveSession();
+        }
+
+        private void ImplementGameMode()
+        {
+            GameMode gameMode = _gameSession.GameSettings.GameMode;
+            
+            switch(gameMode.SnakeSpeed)
+            {
+                case "Slow":
+                    _moveSnakeInterval = 120;
+                    break;
+                case "Normal":
+                    _moveSnakeInterval = 100;
+                    break;
+                case "Fast":
+                    _moveSnakeInterval = 80;
+                    break;
+            }
+
         }
     }
 }

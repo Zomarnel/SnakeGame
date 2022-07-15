@@ -12,7 +12,7 @@
     <None Remove="Images\Helpers\trophy.png" />
     <None Remove="Images\Options_Gear.png" />
     <None Remove="Images\PlayAgain.png" />
-    <None Remove="Images\Snake\SnakeSpriteSheet.png" />
+    <None Remove="Images\Snake\GreenSnake.png" />
     <None Remove="UI\Snakegame.ico" />
   </ItemGroup>
 
@@ -41,7 +41,7 @@
     <Resource Include="Images\Snakegame.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\Snake\SnakeSpriteSheet.png">
+    <Resource Include="Images\Snake\GreenSnake.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

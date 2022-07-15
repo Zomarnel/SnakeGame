@@ -19,12 +19,12 @@ namespace WPFUI.Services
 
         private  int SPRITEWIDTH = 64;
         private  int SPRITEHEIGHT = 64;
-        public DrawingService(Canvas canvas)
+        public DrawingService(Canvas canvas, string snakeColour)
         {
             _canvas = canvas;
 
             _spriteSheet.BeginInit();
-            _spriteSheet.UriSource = new Uri("/Images/Snake/SnakeSpriteSheet.png", UriKind.Relative);
+            _spriteSheet.UriSource = new Uri("/Images/Snake/" + snakeColour + "snake.png", UriKind.Relative);
             _spriteSheet.EndInit();
 
             _spriteSheet.BaseUri = Application.Current.StartupUri;
