@@ -16,9 +16,7 @@ namespace WPFUI.Models
             Apple,
             Banana,
             Pineapple,
-            Grapes,
             Cherry,
-            Carrot,
             Watermelon
         };
         public enum PlayModes
@@ -33,9 +31,7 @@ namespace WPFUI.Models
             Green,
             Red,
             Blue,
-            Yellow,
-            White,
-            Black,
+            Yellow
         };
         public enum SnakeSpeeds
         {

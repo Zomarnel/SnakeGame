@@ -14,7 +14,7 @@ namespace WPFUI.UI
 {
     public partial class MainWindow : Window
     {
-        private GameSession _gameSession = new GameSession();
+        private GameSession _gameSession;
 
         private bool _hasCarriedOutMovement = false;
 
@@ -27,9 +27,12 @@ namespace WPFUI.UI
         public MainWindow()
         {
             InitializeComponent();
-            ImplementGameMode();
             InitializeTimers();
             CreatePlayGroundGrid();
+
+            _gameSession = new GameSession(CanvasPlayGround);
+
+            ImplementGameMode();
 
             DataContext = _gameSession;
         }
@@ -65,11 +68,7 @@ namespace WPFUI.UI
 
             CollisionsCheck();
 
-            CanvasPlayGround.Children.Clear();
-
-            _gameSession.DrawSnake(CanvasPlayGround);
-
-            _gameSession.DrawFruitsOnPlayGround(CanvasPlayGround);
+            _gameSession.DrawSnake();
 
             _hasCarriedOutMovement = false;
         }
@@ -88,7 +87,6 @@ namespace WPFUI.UI
         }
         private void SpeedGame(object sender, EventArgs e)
         {
-            _gameSession.DrawFruitsOnPlayGround(CanvasPlayGround);
         }
 
         #endregion SnakeMovement
@@ -172,7 +170,9 @@ namespace WPFUI.UI
             playAgainMessage.Owner = this;
             playAgainMessage.ShowDialog();
 
-            _gameSession = new GameSession();
+            _gameSession.GameOver();
+
+            _gameSession = new GameSession(CanvasPlayGround);
 
             DataContext = _gameSession;
 
@@ -187,7 +187,6 @@ namespace WPFUI.UI
         {
             _gameSession.SaveSession();
         }
-
         private void ImplementGameMode()
         {
             GameMode gameMode = _gameSession.GameSettings.GameMode;

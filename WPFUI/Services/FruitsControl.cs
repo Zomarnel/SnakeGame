@@ -4,15 +4,24 @@ using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System;
+using WpfAnimatedGif;
 
 namespace WPFUI.Services
 {
     public class FruitsControl
     {
         private List<Fruit> _currentFruits = new List<Fruit>();
-        public FruitsControl(int numberOfFruits, string fruitImage, Snake snake)
+
+        private List<Image> _storedImageFruits = new List<Image>();
+
+        private Canvas _canvas;
+        public FruitsControl(int numberOfFruits, string fruitImage, Snake snake, Canvas canvas)
         {
+            _canvas = canvas;
+
             InitializeCurrentFruits(numberOfFruits, fruitImage, snake);
+
+            DisplayCurrentFruits();
         }
         public int CheckForFruitCollision(Snake snake)
         {
@@ -30,12 +39,17 @@ namespace WPFUI.Services
                 }
             }
 
-            RemoveFruitsFromCurrentFruits(fruitsToRemove, snake);
+            if(fruitsToRemove.Any())
+            {
+                RemoveFruitsFromCurrentFruits(fruitsToRemove, snake);
+            }
 
             return score;
         }
-        public void DisplayCurrentFruits(Canvas playGround)
+        private void DisplayCurrentFruits()
         {
+            RemoveFruitImagesFromCanvas();
+
             foreach(Fruit fruit in _currentFruits)
             {
                 Image fruitImage = new Image();
@@ -44,15 +58,19 @@ namespace WPFUI.Services
 
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri($"/Images/Fruits/{fruit.ImageName}.png", UriKind.Relative);
+                bitmap.UriSource = new Uri($"/Images/Fruits/BananaDance.gif", UriKind.Relative);
                 bitmap.EndInit();
 
                 fruitImage.Source = bitmap;
 
-                playGround.Children.Add(fruitImage);
+                ImageBehavior.SetAnimatedSource(fruitImage, bitmap);
+
+                _canvas.Children.Add(fruitImage);
 
                 Canvas.SetLeft(fruitImage, fruit.XCoordinate);
                 Canvas.SetBottom(fruitImage, fruit.YCoordinate);
+
+                _storedImageFruits.Add(fruitImage);
             }
         }
         private void InitializeCurrentFruits(int num, string fruitImage, Snake snake)
@@ -112,6 +130,17 @@ namespace WPFUI.Services
 
                 haveCoordinatesBeenChosen = false;
             }
+
+            DisplayCurrentFruits();
+        }
+        public void RemoveFruitImagesFromCanvas()
+        {
+            foreach (Image img in _storedImageFruits)
+            {
+                _canvas.Children.Remove(img);
+            }
+
+            _storedImageFruits.Clear();
         }
     }
 }

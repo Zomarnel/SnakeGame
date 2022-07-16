@@ -19,6 +19,8 @@ namespace WPFUI.Services
 
         private  int SPRITEWIDTH = 64;
         private  int SPRITEHEIGHT = 64;
+
+        private List<Image> _storedSnake = new List<Image>();
         public DrawingService(Canvas canvas, string snakeColour)
         {
             _canvas = canvas;
@@ -48,6 +50,13 @@ namespace WPFUI.Services
             _snakeBodySpriteSheet.Add("BottomLeft", new CroppedBitmap(_spriteSheet, new Int32Rect(0, 64, SPRITEWIDTH, SPRITEHEIGHT)));
 
 
+        }
+        public void RemoveSnakeFromCanvas()
+        {
+            foreach (Image img in _storedSnake)
+            {
+                _canvas.Children.Remove(img);
+            }
         }
         public void DrawSnake(Snake snake)
         {
@@ -81,6 +90,8 @@ namespace WPFUI.Services
 
             Canvas.SetLeft(image, head.XCoordinate);
             Canvas.SetBottom(image, head.YCoordinate);
+
+            _storedSnake.Add(image);
         }
         private void DrawSnakeTail(SnakeBodyPart tail)
         {
@@ -96,6 +107,8 @@ namespace WPFUI.Services
 
             Canvas.SetLeft(image, tail.XCoordinate);
             Canvas.SetBottom(image, tail.YCoordinate);
+
+            _storedSnake.Add(image);
         }
         private void DrawSnakeBody(List<SnakeBodyPart> body, SnakeHead head, SnakeBodyPart tail)
         {
@@ -187,6 +200,10 @@ namespace WPFUI.Services
 
             Canvas.SetLeft(image, centerPart.XCoordinate);
             Canvas.SetBottom(image, centerPart.YCoordinate);
+
+            _storedSnake.Add(image);
+
         }
+
     }
 }

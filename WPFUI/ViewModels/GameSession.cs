@@ -30,21 +30,24 @@ namespace WPFUI.ViewModels
                 }
             }
         }
-        private FruitsControl FruitsControl { get; set; } 
-        public GameSession()
+        private FruitsControl _fruitsControl { get; init; } 
+        private DrawingService _drawingService { get; init; }
+        public GameSession(Canvas drawingCanvas)
         {
             Snake = new Snake(StartingPositionX, StartingPositionY);
 
             GameSettings = SavingService.LoadGameSettingsOrCreateNew();
 
-            FruitsControl = new FruitsControl(GameSettings.GameMode.NumberOfFruitsOnGrid, GameSettings.GameMode.FruitType, Snake);
-        }
-        public void DrawSnake(Canvas canvas)
-        {
-            DrawingService ds = new DrawingService(canvas, GameSettings.GameMode.SnakeColour);
+            _fruitsControl = new FruitsControl(GameSettings.GameMode.NumberOfFruitsOnGrid, GameSettings.GameMode.FruitType, Snake, drawingCanvas);
 
-            ds.DrawSnake(Snake);
+            _drawingService = new DrawingService(drawingCanvas, GameSettings.GameMode.SnakeColour);
         }
+        public void DrawSnake()
+        {
+            _drawingService.RemoveSnakeFromCanvas();
+            _drawingService.DrawSnake(Snake);
+        }
+
         public void MoveSnake()
         {
             if(Snake.SnakeDirection != Directions.StartingPosition)
@@ -52,17 +55,18 @@ namespace WPFUI.ViewModels
                 Snake.Move();
             }
         }
-        public void DrawFruitsOnPlayGround(Canvas playGround)
-        {
-            FruitsControl.DisplayCurrentFruits(playGround);
-        }
         public void CheckForFruitCollisionWithSnake()
         {
-            CurrentScore += FruitsControl.CheckForFruitCollision(Snake);
+            CurrentScore += _fruitsControl.CheckForFruitCollision(Snake);
         }
         public void SaveSession()
         {
             SavingService.Save(GameSettings);
+        }
+        public void GameOver()
+        {
+            _drawingService.RemoveSnakeFromCanvas();
+            _fruitsControl.RemoveFruitImagesFromCanvas();
         }
     }
 }

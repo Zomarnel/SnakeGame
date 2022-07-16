@@ -9,12 +9,22 @@
 
   <ItemGroup>
     <None Remove="Images\Fruits\apple.png" />
+    <None Remove="Images\Fruits\Banana.png" />
+    <None Remove="Images\Fruits\BananaDance.gif" />
     <None Remove="Images\Helpers\trophy.png" />
     <None Remove="Images\Options_Gear.png" />
     <None Remove="Images\PlayAgain.png" />
+    <None Remove="Images\Snake\BlueSnake.png" />
     <None Remove="Images\Snake\GreenSnake.png" />
     <None Remove="Images\Snake\RedSnake.png" />
+    <None Remove="Images\Snake\YellowSnake.png" />
     <None Remove="UI\Snakegame.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Fruits\Banana.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -24,11 +34,15 @@
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.4.1" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\Fruits\apple.png">
+    <Resource Include="Images\Fruits\Apple.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Fruits\BananaDance.gif">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Helpers\Options_Gear.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -42,10 +56,16 @@
     <Resource Include="Images\Snakegame.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Snake\BlueSnake.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Snake\GreenSnake.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Snake\RedSnake.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Snake\YellowSnake.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
