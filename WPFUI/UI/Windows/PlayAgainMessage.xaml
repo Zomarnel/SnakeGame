@@ -48,10 +48,10 @@
                 
                 <Image Grid.Row="0"
                        Grid.Column="0"
+                       Name="FruitImage"
                        Width="60"
                        Height="60"
                        Margin="0, 0, 0, 10"
-                       Source="/Images/Fruits/apple.png" 
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
 

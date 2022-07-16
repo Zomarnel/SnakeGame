@@ -9,8 +9,9 @@
 
   <ItemGroup>
     <None Remove="Images\Fruits\Apple.gif" />
-    <None Remove="Images\Fruits\apple.png" />
     <None Remove="Images\Fruits\Banana.gif" />
+    <None Remove="Images\Fruits\Cherry.gif" />
+    <None Remove="Images\Fruits\Pineapple.gif" />
     <None Remove="Images\Helpers\trophy.png" />
     <None Remove="Images\Options_Gear.png" />
     <None Remove="Images\PlayAgain.png" />
@@ -35,10 +36,13 @@
     <Resource Include="Images\Fruits\Apple.gif">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\Fruits\Apple.png">
+    <Resource Include="Images\Fruits\Banana.gif">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\Fruits\Banana.gif">
+    <Resource Include="Images\Fruits\Cherry.gif">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Fruits\Pineapple.gif">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Helpers\Options_Gear.png">

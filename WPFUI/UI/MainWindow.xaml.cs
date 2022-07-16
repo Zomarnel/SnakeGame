@@ -166,7 +166,7 @@ namespace WPFUI.UI
 
             this.Opacity = 0.5;
 
-            PlayAgainMessage playAgainMessage = new PlayAgainMessage(_gameSession.CurrentScore, _gameSession.GameSettings);
+            PlayAgainMessage playAgainMessage = new PlayAgainMessage(_gameSession.CurrentScore, _gameSession.GameSettings, _gameSession.FruitImageUri);
             playAgainMessage.Owner = this;
             playAgainMessage.ShowDialog();
 

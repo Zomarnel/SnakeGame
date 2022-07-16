@@ -3,13 +3,15 @@ using System.Windows.Input;
 using System.ComponentModel;
 using WPFUI.Models;
 using WPFUI.Services;
+using WpfAnimatedGif;
+using System.Windows.Media.Imaging;
 
 namespace WPFUI.UI.Windows
 {
     public partial class PlayAgainMessage : Window
     {
         private GameDetails _gameSettings;
-        public PlayAgainMessage(int playerScore, GameDetails gameSettings)
+        public PlayAgainMessage(int playerScore, GameDetails gameSettings, string fruitImageName)
         {
             InitializeComponent();
 
@@ -22,7 +24,14 @@ namespace WPFUI.UI.Windows
                 _gameSettings.Record = playerScore;
             }
 
-            RecordLabel.Content = _gameSettings.Record.ToString();   
+            RecordLabel.Content = _gameSettings.Record.ToString();
+            
+            BitmapImage img = new BitmapImage();
+            img.BeginInit();
+            img.UriSource = new System.Uri(fruitImageName, System.UriKind.Relative);
+            img.EndInit();
+
+            ImageBehavior.SetAnimatedSource(FruitImage, img);
         }
         private void OnClick_StartNewGame(object sender, RoutedEventArgs e)
         {
