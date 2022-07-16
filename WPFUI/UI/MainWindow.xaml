@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:WPFUI.ViewModels"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         d:DataContext="{d:DesignInstance viewModels:GameSession}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
@@ -24,11 +25,12 @@
                     <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
 
-                <Image Grid.Column="0" Margin="30, 20, 15, 0" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/Images/Fruits/apple.png" Width="40" Height="40"/>
+                <Image Grid.Column="0" Margin="30, 20, 15, 0" HorizontalAlignment="Left" VerticalAlignment="Center" gif:ImageBehavior.AnimatedSource="{Binding FruitImageUri}" Width="40" Height="40"/>
                 <Label Grid.Column="0" Margin="40, 20, 12, 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding CurrentScore}" Foreground="White" FontSize="17pt"/>
 
                 <Image Grid.Column="1" Margin="30, 20, 15, 0" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/Images/Helpers/trophy.png" Width="40" Height="40"/>
                 <Label Grid.Column="1" Margin="40, 20, 12, 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="{Binding GameSettings.Record}" Foreground="White" FontSize="17pt"/>
+
             </Grid>
         </Canvas>
     </Canvas>

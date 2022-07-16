@@ -58,7 +58,7 @@ namespace WPFUI.Services
 
                 BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
-                bitmap.UriSource = new Uri($"/Images/Fruits/BananaDance.gif", UriKind.Relative);
+                bitmap.UriSource = new Uri($"/Images/Fruits/{fruit.ImageName}.gif", UriKind.Relative);
                 bitmap.EndInit();
 
                 fruitImage.Source = bitmap;

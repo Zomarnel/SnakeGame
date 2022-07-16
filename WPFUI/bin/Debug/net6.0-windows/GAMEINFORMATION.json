@@ -1,10 +1,10 @@
 {
-  "Record": 64,
+  "Record": 6,
   "GameMode": {
-    "NumberOfFruitsOnGrid": 0,
+    "NumberOfFruitsOnGrid": 1,
     "FruitType": "Banana",
     "PlayMode": "Vanilla",
-    "SnakeColour": "Red",
+    "SnakeColour": "Green",
     "SnakeSpeed": "Normal"
   }
 }

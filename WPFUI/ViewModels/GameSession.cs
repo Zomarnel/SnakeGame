@@ -30,6 +30,8 @@ namespace WPFUI.ViewModels
                 }
             }
         }
+
+        public string FruitImageUri => $"/Images/Fruits/{GameSettings.GameMode.FruitType}.gif";
         private FruitsControl _fruitsControl { get; init; } 
         private DrawingService _drawingService { get; init; }
         public GameSession(Canvas drawingCanvas)
@@ -47,7 +49,6 @@ namespace WPFUI.ViewModels
             _drawingService.RemoveSnakeFromCanvas();
             _drawingService.DrawSnake(Snake);
         }
-
         public void MoveSnake()
         {
             if(Snake.SnakeDirection != Directions.StartingPosition)

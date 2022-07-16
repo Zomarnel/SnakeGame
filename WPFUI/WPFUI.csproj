@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Fruits\Apple.gif" />
     <None Remove="Images\Fruits\apple.png" />
-    <None Remove="Images\Fruits\Banana.png" />
-    <None Remove="Images\Fruits\BananaDance.gif" />
+    <None Remove="Images\Fruits\Banana.gif" />
     <None Remove="Images\Helpers\trophy.png" />
     <None Remove="Images\Options_Gear.png" />
     <None Remove="Images\PlayAgain.png" />
@@ -19,12 +19,6 @@
     <None Remove="Images\Snake\RedSnake.png" />
     <None Remove="Images\Snake\YellowSnake.png" />
     <None Remove="UI\Snakegame.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Images\Fruits\Banana.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -38,10 +32,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\Fruits\Apple.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Resource Include="Images\Fruits\Apple.gif">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\Fruits\BananaDance.gif">
+    <Resource Include="Images\Fruits\Apple.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Fruits\Banana.gif">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Helpers\Options_Gear.png">
