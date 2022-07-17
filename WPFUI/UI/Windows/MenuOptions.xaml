@@ -1,0 +1,76 @@
+﻿<Window x:Class="WPFUI.UI.Windows.MenuOptions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Height="450" Width="350"
+        FontSize="15pt"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Window.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Border" Background="Blue" CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="LightBlue" CornerRadius="10"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Style="{StaticResource ButtonStyle}"
+                    Grid.Column="0"
+                    Margin="0, 5, 5, 0"
+                    MouseEnter="OnMouseEnter"
+                    MouseLeave="OnMouseLeave"
+                    Click="OnClick_ReturnBack"
+                    Foreground="White">
+                <Button.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="/Images/Helpers/ReturnArrow.png" Height="50" Width="50" HorizontalAlignment="Center"/>
+                        <Label Grid.Column="1" Content="Return" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
+                    </Grid>
+                </Button.Content>
+            </Button>
+
+            <Button Style="{StaticResource ButtonStyle}"
+                    Grid.Column="1"
+                    Margin="5, 5, 0, 0"
+                    Foreground="White"
+                    MouseEnter="OnMouseEnter"
+                    MouseLeave="OnMouseLeave"
+                    Height="100" Width="75">
+
+                <Button.Content>
+                    <Image Source="/Images/Helpers/Dice.png" HorizontalAlignment="Center" Height="50" Width="50"/>
+                </Button.Content>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

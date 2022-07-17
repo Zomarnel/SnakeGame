@@ -2,7 +2,7 @@
   "Record": 7,
   "GameMode": {
     "NumberOfFruitsOnGrid": 1,
-    "FruitType": "Cherry",
+    "FruitType": "Banana",
     "PlayMode": "Vanilla",
     "SnakeColour": "Green",
     "SnakeSpeed": "Normal"

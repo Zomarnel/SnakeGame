@@ -2,11 +2,17 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="UI\Windows\MenuOptions.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UI\Windows\PlayAgainMessage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="UI\Windows\MenuOptions.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UI\Windows\PlayAgainMessage.xaml">
       <SubType>Designer</SubType>
     </Page>

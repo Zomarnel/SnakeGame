@@ -26,3 +26,5 @@ C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\WPF
 C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\WPFUI.csproj.CopyComplete
 C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\bin\Debug\net6.0-windows\WpfAnimatedGif.dll
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\UI\Windows\MenuOptions.baml
+C:\Users\Bouazza\Desktop\C#Projects\SnakeGame\WPFUI\obj\Debug\net6.0-windows\UI\Windows\MenuOptions.g.cs

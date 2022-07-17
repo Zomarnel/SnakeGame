@@ -12,6 +12,9 @@
     <None Remove="Images\Fruits\Banana.gif" />
     <None Remove="Images\Fruits\Cherry.gif" />
     <None Remove="Images\Fruits\Pineapple.gif" />
+    <None Remove="Images\Fruits\Watermelon.gif" />
+    <None Remove="Images\Helpers\Dice.png" />
+    <None Remove="Images\Helpers\ReturnArrow.png" />
     <None Remove="Images\Helpers\trophy.png" />
     <None Remove="Images\Options_Gear.png" />
     <None Remove="Images\PlayAgain.png" />
@@ -45,10 +48,19 @@
     <Resource Include="Images\Fruits\Pineapple.gif">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Fruits\Watermelon.gif">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Helpers\Dice.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Helpers\Options_Gear.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Helpers\PlayAgain.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Helpers\ReturnArrow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Helpers\trophy.png">

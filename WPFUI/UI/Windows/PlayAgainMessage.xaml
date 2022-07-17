@@ -105,7 +105,8 @@
                     Foreground="White"
                     MouseEnter="OnMouseEnter"
                     MouseLeave="OnMouseLeave"
-                    Height="100" Width="75">
+                    Height="100" Width="75"
+                    Click="OnClick_OpenMenu">
                 <Button.Content>
                     <Image Source="/Images/Helpers/Options_Gear.png" Height="50" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Button.Content>
