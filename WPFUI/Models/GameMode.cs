@@ -1,49 +1,41 @@
-﻿
+﻿using System.Collections.Generic;
+
 namespace WPFUI.Models
 {
     public class GameMode
     {
-        public enum NumbersOfFruitsOnGrid
+        public readonly List<int> NumbersOfFruitsOnGrid = new List<int>()
         {
-            One,
-            Two,
-            Three,
-            Four,
-            Five
+            1,
+            2,
+            3,
+            4,
+            5
         };
-        public enum FruitTypes
+        public readonly List<string> FruitTypes = new List<string>()
         {
-            Apple,
-            Banana,
-            Pineapple,
-            Cherry,
-            Watermelon
+            "Apple",
+            "Banana",
+            "Pineapple",
+            "Cherry",
+            "Watermelon"
         };
-        public enum PlayModes
+        public readonly List<string> SnakeColours = new List<string>()
         {
-            Vanilla,
-            Walls,
-            Infinite,
-            FlyingFruit
+            "Green",
+            "Red",
+            "Blue",
+            "Yellow"
         };
-        public enum SnakeColours
+        public readonly List<string> SnakeSpeeds = new List<string>()
         {
-            Green,
-            Red,
-            Blue,
-            Yellow
-        };
-        public enum SnakeSpeeds
-        {
-            Slow,
-            Normal,
-            Fast,
-            Impossible
+            "Slow",
+            "Normal",
+            "Fast"
         };
 
         public int NumberOfFruitsOnGrid { get; set; }
         public string FruitType { get; set; }
-        public string PlayMode { get; set; }
         public string SnakeColour { get; set; }
         public string SnakeSpeed { get; set; }
     }

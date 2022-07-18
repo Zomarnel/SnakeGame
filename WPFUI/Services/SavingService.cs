@@ -17,7 +17,13 @@ namespace WPFUI.Services
         {
             if(!File.Exists(SAVE_GAME_FILE_NAME))
             {
-                return new GameDetails(0, GameModeService.ReturnClassicGameMode());
+                return new GameDetails(0, new GameMode()
+                {
+                    NumberOfFruitsOnGrid = 1,
+                    FruitType = "Apple",
+                    SnakeColour = "Green",
+                    SnakeSpeed = "Normal"
+                });
             }
 
             JObject data = JObject.Parse(File.ReadAllText(SAVE_GAME_FILE_NAME));
@@ -36,7 +42,6 @@ namespace WPFUI.Services
             {
                 NumberOfFruitsOnGrid = (int)data[nameof(GameDetails.GameMode)][nameof(GameMode.NumberOfFruitsOnGrid)],
                 FruitType = (string)data[nameof(GameDetails.GameMode)][nameof(GameMode.FruitType)],
-                PlayMode = (string)data[nameof(GameDetails.GameMode)][nameof(GameMode.PlayMode)],
                 SnakeColour = (string)data[nameof(GameDetails.GameMode)][nameof(GameMode.SnakeColour)],
                 SnakeSpeed = (string)data[nameof(GameDetails.GameMode)][nameof(GameMode.SnakeSpeed)]
             };

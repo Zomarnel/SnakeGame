@@ -14,10 +14,21 @@
     <None Remove="Images\Fruits\Pineapple.gif" />
     <None Remove="Images\Fruits\Watermelon.gif" />
     <None Remove="Images\Helpers\Dice.png" />
+    <None Remove="Images\Helpers\FiveApples.png" />
+    <None Remove="Images\Helpers\FourApples.png" />
+    <None Remove="Images\Helpers\OneApple.png" />
     <None Remove="Images\Helpers\ReturnArrow.png" />
+    <None Remove="Images\Helpers\ThreeApples.png" />
     <None Remove="Images\Helpers\trophy.png" />
+    <None Remove="Images\Helpers\TwoApples.png" />
     <None Remove="Images\Options_Gear.png" />
     <None Remove="Images\PlayAgain.png" />
+    <None Remove="Images\SnakeIcons\BlueSnake.png" />
+    <None Remove="Images\SnakeIcons\RedSnake.png" />
+    <None Remove="Images\SnakeIcons\YellowSnake.png" />
+    <None Remove="Images\SnakeSpeeds\Rabbit.png" />
+    <None Remove="Images\SnakeSpeeds\Snake.png" />
+    <None Remove="Images\SnakeSpeeds\Tortoise.png" />
     <None Remove="Images\Snake\BlueSnake.png" />
     <None Remove="Images\Snake\GreenSnake.png" />
     <None Remove="Images\Snake\RedSnake.png" />
@@ -52,21 +63,54 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Helpers\Dice.png">
+      <CopyToOutputDirectory>Non</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Numbers\FiveApples.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Numbers\FourApples.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Numbers\OneApple.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Helpers\Options_Gear.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Non</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Helpers\PlayAgain.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Non</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Helpers\ReturnArrow.png">
+      <CopyToOutputDirectory>Non</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Numbers\ThreeApples.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Helpers\trophy.png">
+      <CopyToOutputDirectory>Non</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Numbers\TwoApples.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Snakegame.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SnakeIcons\BlueSnake.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SnakeIcons\RedSnake.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SnakeIcons\YellowSnake.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SnakeSpeeds\Rabbit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SnakeSpeeds\Snake.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SnakeSpeeds\Tortoise.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Snake\BlueSnake.png">
