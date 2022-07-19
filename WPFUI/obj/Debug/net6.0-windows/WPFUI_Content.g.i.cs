@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/fruits/bananadance.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sounds/dittodance.wav")]
 
 

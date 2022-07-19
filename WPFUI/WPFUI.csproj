@@ -33,7 +33,14 @@
     <None Remove="Images\Snake\GreenSnake.png" />
     <None Remove="Images\Snake\RedSnake.png" />
     <None Remove="Images\Snake\YellowSnake.png" />
+    <None Remove="Sounds\DittoDance.wav" />
     <None Remove="UI\Snakegame.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Sounds\DittoDance.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

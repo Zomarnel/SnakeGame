@@ -9,6 +9,7 @@ using System.ComponentModel;
 using WPFUI.UI.Windows;
 using WPFUI.ViewModels;
 using WPFUI.Models;
+using System.Media;
 
 namespace WPFUI.UI
 {
@@ -35,6 +36,10 @@ namespace WPFUI.UI
             ImplementGameMode();
 
             DataContext = _gameSession;
+
+            SoundPlayer soundPlayer = new SoundPlayer(@"E:\Users\Bouazza\Downloads\DittoDance.wav");
+            soundPlayer.PlayLooping();
+
         }
 
         #region SnakeMovement

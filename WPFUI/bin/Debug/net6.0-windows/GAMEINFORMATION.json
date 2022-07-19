@@ -1,0 +1,34 @@
+{
+  "Record": 0,
+  "GameMode": {
+    "NumbersOfFruitsOnGrid": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "FruitTypes": [
+      "Apple",
+      "Banana",
+      "Pineapple",
+      "Cherry",
+      "Watermelon"
+    ],
+    "SnakeColours": [
+      "Green",
+      "Red",
+      "Blue",
+      "Yellow"
+    ],
+    "SnakeSpeeds": [
+      "Slow",
+      "Normal",
+      "Fast"
+    ],
+    "NumberOfFruitsOnGrid": 1,
+    "FruitType": "Apple",
+    "SnakeColour": "Green",
+    "SnakeSpeed": "Normal"
+  }
+}
